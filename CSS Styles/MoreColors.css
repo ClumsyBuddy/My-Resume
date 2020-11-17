@@ -196,5 +196,9 @@
 {color:#000;background-color:#E6AF91}
 .w3-2020-magenta-purple
 {color:#fff;background-color:#6C244C}
-.w3-TrevorsColors-Deep-Blue
+.w3-TBackGroundColor-Deep-Blue
 {color:#000;background-color:#0023eb}
+.w3-TTextColor-Light-Grey
+{color:#e1e2e4 !important}
+.w3-TTextColor-Dark-Grey
+{color:#000 !important}
