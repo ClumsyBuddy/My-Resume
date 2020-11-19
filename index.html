@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./CSS Styles/w3.css">
 <link rel="stylesheet" href="./CSS Styles/MoreColors.css">
+<link rel="stylesheet" href="./CSS Styles/Winntr.css">
 <html lang="en-US">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>First website!</title>
   </head>
 
@@ -15,12 +16,51 @@
           <a href="MyProjects/projects.html" class="w3-button w3-hover-red w3-bar-item" title="The colors are placeholder">My Projects</a>
           <a href="ContactMe/contact.html" class="w3-button w3-hover-purple w3-bar-item" title="The colors are placeholder">Contact</a>
       </nav>
+
       <div class="w3-container">
         <h1 style="text-align:center;">I'm Trevor Winn</h1>
-          <p style="text-align:center;">Hello</p>
       </div>
-      <footer class="w3-container w3-display-bottommiddle">
-          <p style="text-align:center"><i>This Page is going to include basic info about me and <br>buttons with links to more specific information<br> Day 3</i></p>
+
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="./Images/Temp1.jpg" class="ImageBounds"  width="600" height="400">
+    <div class="text">Caption One</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="./Images/Temp2.jpg" class="ImageBounds"  width="600" height="400">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="./Images/Temp3.jpg" class="ImageBounds" width="600" height="400">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+
+
+<script src="./JavaScript/SlideShow.js"></script>
+
+  <div class="w3-container">
+ <footer class="w3-container" style="height:100%;">
+          <p style="text-align:center; padding:10px;"><i>This Page is going to include basic info about me and <br>buttons with links to more specific information<br> Day 3</i></p>
       </footer>
+    </div> 
   </body>
 </html>
