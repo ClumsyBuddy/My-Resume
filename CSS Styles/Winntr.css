@@ -92,7 +92,7 @@
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 320) {
   .prev, .next,.text {font-size: 11px}
 }
 
@@ -121,6 +121,29 @@
 }
 
 
-.Text-Controller{
-  font-size: 3vw;
+.Large-Text-Controller{
+  font-size: 35px;
+}
+.Mid-Text-Controller{
+  font-size: 25px;
+}
+.Small-Text-Controller{
+  font-size: 20px;
+}
+.Footer-Text-Controller{
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 601px){
+  .Mid-Text-Controller {font-size: 30px;}
+}
+@media only screen and (max-width: 600px){
+  .Mid-Text-Controller, .Large-Text-Controller {font-size: 25px;}
+}
+@media only screen and (max-width: 400px){
+  .Mid-Text-Controller, .Small-Text-Controller, .Large-Text-Controller {font-size: 15px;}
+}
+@media only screen and (max-width: 250px){
+  .Mid-Text-Controller, .Small-Text-Controller, 
+  .Footer-Text-Controller, .Large-Text-Controller {font-size: 10px;}
 }
