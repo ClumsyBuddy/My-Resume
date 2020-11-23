@@ -147,3 +147,9 @@
   .Mid-Text-Controller, .Small-Text-Controller, 
   .Footer-Text-Controller, .Large-Text-Controller {font-size: 10px;}
 }
+
+
+.Standard-Text{
+  text-align: center;
+  padding: 20px;
+}
