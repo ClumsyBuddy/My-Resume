@@ -24,6 +24,4 @@ function SlideStateUpdate(n)
 		slides[n-1].style.display = "none";
 		SlideOpen[n-1] = false;
 	}
-	
-	console.log(SlideOpen);
 }
