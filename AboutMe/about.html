@@ -1,4 +1,3 @@
-﻿<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../CSS Styles/w3.css">
@@ -16,24 +15,32 @@
             <a href="../ContactMe/contact.html" class="w3-button w3-hover-purple w3-bar-item" title="The colors are placeholder">Contact</a>
         </nav>
         <div style="color:orange">
-            <div  class="Large-Text-Controller" style="text-align:center">
-                <h1 class="Large-Text-Controller">My name is Trevor Winn</h1>
-                <h2 class="Large-Text-Controller">Lily is my wife</h2>
-                <h3 class="Large-Text-Controller">My brother is zack winn</h3>
-            </div>
-            <div style="padding:10px; text-align:center;" class="Small-Text-Controller">
-                <h4 class="Mid-Text-Controller">My Resume</h4>
-                <a href="./Trevor-Winn.pdf" download="./Trevor-Winn.pdf"><p>Trevor-Winn.pdf</p></a>
-                <p style="text-align:center">My resume may be updated with new <br>information at irregular itervals</p>
-            </div>
+    <div class="Small-Text-Controller">
+        <a class="SlideButtons" onclick="SlideStateUpdate(1)">Button one</a>
+        <div class="MenuSlides">
+        <section>This is info</section>
+        <section> More info </section>
         </div>
-        <footer class="w3-container">
-            <div class="Footer-Text-Controller"
-                style="text-align:center; width:100%; color:orange;">
-                <i>This page is going to include in-depth information about me<br>
-                personally and professionally</i>
-            </div>
-        </footer>
-        
-    </body>
+        <a class="SlideButtons" onclick="SlideStateUpdate(2)">Button two</a>
+        <div class="MenuSlides">
+        <section>This is info 2</section>
+        <section> More info 2</section>
+    </div>
+</div>
+<div style="padding:10px; text-align:center;" class="Small-Text-Controller">
+<h4 class="Mid-Text-Controller">My Resume</h4>
+<a href="./Trevor-Winn.pdf" download="./Trevor-Winn.pdf"><p>Trevor-Winn.pdf</p></a>
+<p style="text-align:center">My resume may be updated with new <br>information at irregular itervals</p>
+</div>
+</div>
+<script src="../JavaScript/About-Me.js"></script>
+<footer class="w3-container">
+<div class="Footer-Text-Controller"
+style="text-align:center; width:100%; color:orange;">
+<i>This page is going to include in-depth information about me<br>
+personally and professionally</i>
+</div>
+</footer>
+
+</body>
 </html>

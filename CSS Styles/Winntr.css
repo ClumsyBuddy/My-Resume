@@ -10,6 +10,28 @@
   margin: auto;
 }
 
+.SlideButtons{
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  display: block;
+  text-align: center;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+.SlideButtons:hover {
+  cursor: pointer;
+  background: white;
+}
+.MenuSlides {
+  display: none; 
+  text-align: center; 
+  color: white;
+  background: black;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
