@@ -14,10 +14,14 @@
   position: relative;
   overflow: hidden;
   user-select: none;
+  background-color: black;
+  border-style: solid;
+  padding: 1px;
   display: block;
   text-align: center;
   margin-left: 40%;
   margin-right: 40%;
+  margin-top: 0.5%;
 }
 .SlideButtons:hover {
   cursor: pointer;
@@ -26,7 +30,7 @@
 .MenuSlides {
   display: none; 
   text-align: center; 
-  color: white;
+  color: orange;
   background: black;
   margin-right: 25%;
   margin-left: 25%;
