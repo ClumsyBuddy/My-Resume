@@ -12,7 +12,7 @@
 <head>
   <title>My website!</title>
 </head>
-<body class="w3-dark-gray w3-TTextColor-Light-Grey">
+<body >
   <!--Navigation bar for different main pages on website -->
   <nav class="w3-container w3-bar w3-black">
     <a href="./index.html" class="w3-button w3-hover-green w3-bar-item" title="The colors are placeholder">Home</a>
@@ -24,113 +24,7 @@
     <h1 style="text-align:center;">I'm Trevor Winn</h1>
   </div>
   <!-- Slide show  container, syles everything to do with the sideshows-->
-  <div class="slideshow-container">
-    <!-- Set the position to relative to allow adjustable locations -->
-    <div class="mySlides fade" style="position:relative">
-      <!-- Current image number -->
-      <div class="numbertext">1 / 5</div>
-      <!-- Add the image, Imagebounds sizes the image for different resolutions, Default is 700,700 -->
-      <img src="./Images/MeandMyLove.jpg" class="ImageBounds">
-      <!-- This is how I add tool-tips -->
-      <!-- Set the position to absolute so it wont change in the div, make the background transparent
-      Position the transparent rectangle based on percents so it works on all resolutions -->
-      <div style="position:absolute; background-color:transparent;
-        left:13%; top:7%; width:34%; height:87%;"
-      title="This is me"></div>
-      <div style="position:absolute; background-color:transparent;
-        left:45%; top:7%; width:34%; height:87%;"
-        title="This is my little wife, she is so beautiful <3"></div> <!-- Tool-tip thats shows up when hovering over someone -->
-        <div class="text" style="color:#00cc00">Me and the girl I love the most</div>
-      </div>
-      <!-- Repeat of slide 1 -->
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 5</div>
-        <img src="./Images/MeandMum.jpg" class="ImageBounds">
-        <div style="position:absolute; background-color:transparent;
-          left:13%; top:7%; width:34%; height:87%;"
-        title="This is my mother, shes the best person I know!"></div>
-        <div style="position:absolute; background-color:transparent;
-          left:50%; top:7%; width:34%; height:87%;"
-        title="This is me"></div>
-        <div class="text" style="color:#cc00ff">
-          Me and the person I look up to more than anyone else
-        </div>
-      </div>
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 5</div>
-        <img src="./Images/MeandSis.jpg" class="ImageBounds">
-        <div style="position:absolute; background-color:transparent;
-          left:13%; top:7%; width:40%; height:87%;"
-        title="This is me"></div>
-        <div style="position:absolute; background-color:transparent;
-          left:50%; top:7%; width:34%; height:87%;"
-          title="This is my little sister, shes still a baby to me">
-        </div>
-        <div class="text" style="color:#0066ff">Me and my talented baby sister, you rock Chay
-        </div>
-      </div>
-      <div class="mySlides fade">
-        <div class="numbertext">4 / 5</div>
-        <img src="./Images/MeandtheFam.jpg" class="ImageBounds">
-        <div style="position:absolute; background-color:transparent;
-          left:26%; top:7%; width:12%; height:87%;"
-        title="My wifey again"></div>
-        <div style="position:absolute; background-color:transparent;
-          left:38%; top:7%; width:10%; height:87%;"
-        title="This is me once again, Hello!"></div>
-        <div style="position:absolute; background-color:transparent;
-          left:46%; top:7%; width:9%; height:87%;"
-        title="This is Chay again"></div>
-        <div style="position:absolute; background-color:transparent;
-          left:54%; top:7%; width:9%; height:87%;"
-        title="This is my little brother, he is a dork"></div>
-        <div style="position:absolute; background-color:transparent;
-          left:62%; top:7%; width:10%; height:87%;"
-        title="This is Linda, she likes cofefe"></div>
-        <div class="text" style="color:#ff66cc">Me with the people I love, it was such a good day
-        </div>
-      </div>
-      <div class="mySlides fade">
-        <div class="numbertext">5 / 5</div>
-        <img src="./Images/PepeHands.jpg" class="ImageBounds" height="500">
-        <div class="text" style="color:#1affff">When your CSS breaks everything</div>
-      </div>
-      <!-- Adds the side buttons to the images to change images, increments and decrements -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>
-    <!-- Adds the dots below there images that can change the current image -->
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-      <span class="dot" onclick="currentSlide(5)"></span>
-    </div>
-    <!-- Java-script for changing the slide shows -->
-    <script src="./JavaScript/SlideShow.js"></script>
-    <div class="Standard-Text">
-      <!-- Area stuff about me will go and the footer as a kind of disclaimer -->
-      <section>
-        <h1 class="Mid-Text-Controller"><u>
-        <i>You may be wondering what this websites purpose is, well the answer is quite simple.</i>
-        </u></h1>
-        <p> The main purpose of this website is to give clients and recruiters a better understanding of
-          my current skill set. The secondary purpose is to give insight into what type of person I am prior to
-          any communication. Have you ever had those moments where the resume didn't match the character in the
-        slightest bit? I'm sure we all have, this website is to prevent that from happening here.</p>
-      </section>
-      <section>
-        <h1 class="Mid-Text-Controller"><u><i>Who am I?</i></u></h1>
-        <p>My name is Trevor Alan Winn, I am prior AirForce and soon to be Computer science major with self taught knowledge in C++, C#, Python, Java-script, HTML, CSS. Currently my best language is C++ simply due to it being my first language I learned.</p>
-        <h2 class="Mid-Text-Controller"><u><i>What am I looking for?</i></u></h2>
-        <p>I am looking for a career in computer science to compliment my college courses, I don't want to just be good enough, I want to be ahead of my peers and strive further by jumping straight into the fray. I truly believe I have the ability necessary to be a valuable asset to any team.</p>
-      </section>
-      <footer style="font-size:15px;">
-        <b>Please use the navigation bar above to continue to more specific information.</b>
-      </footer>
-    </div>
+  
     <div class="Standard-Text" style="margin-left:30%; margin-right:30%;">
       <footer>
         <p><i>This Page is going to include basic info about me and

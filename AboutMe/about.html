@@ -4,60 +4,145 @@
 <link rel="stylesheet" href="../CSS Styles/MoreColors.css">
 <link rel="stylesheet" href="../CSS Styles/Winntr.css">
 <html lang="en-US">
-    <head>
-        <title>About Me</title>
-    </head>
-    <body class="w3-TBackGroundColor-Deep-Blue">
-        <nav class="w3-container w3-bar w3-black">
-            <a href="../index.html" class="w3-button w3-hover-green w3-bar-item" title="The colors are placeholder">Home</a>
-            <a href="./about.html" class="w3-button w3-hover-blue w3-bar-item" title="The colors are placeholder">About Me</a>
-            <a href="../MyProjects/projects.html" class="w3-button w3-hover-red w3-bar-item " title="The colors are placeholder">My Projects</a>
-            <a href="../ContactMe/contact.html" class="w3-button w3-hover-purple w3-bar-item" title="The colors are placeholder">Contact</a>
-        </nav>
+
+<head>
+    <title>About Me</title>
+</head>
+
+<body class="w3-dark-gray w3-TTextColor-Light-Grey">
+    <nav class="w3-container w3-bar w3-black">
+        <a href="../index.html" class="w3-button w3-hover-green w3-bar-item" title="The colors are placeholder">Home</a>
+        <a href="./about.html" class="w3-button w3-hover-blue w3-bar-item" title="The colors are placeholder">About Me</a>
+        <a href="../MyProjects/projects.html" class="w3-button w3-hover-red w3-bar-item " title="The colors are placeholder">My Projects</a>
+        <a href="../ContactMe/contact.html" class="w3-button w3-hover-purple w3-bar-item" title="The colors are placeholder">Contact</a>
+    </nav>
+    <div class="slideshow-container">
+        <!-- Set the position to relative to allow adjustable locations -->
+        <div class="mySlides fade" style="position:relative">
+            <!-- Current image number -->
+            <div class="numbertext">1 / 5</div>
+            <!-- Add the image, Imagebounds sizes the image for different resolutions, Default is 700,700 -->
+            <img src="../Images/MeandMyLove.jpg" class="ImageBounds">
+            <!-- This is how I add tool-tips -->
+            <!-- Set the position to absolute so it wont change in the div, make the background transparent
+              Position the transparent rectangle based on percents so it works on all resolutions -->
+        </div>
+
+        <!-- Repeat of slide 1 -->
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 5</div>
+            <img src="../Images/MeandMum.jpg" class="ImageBounds">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="../Images/MeandSis.jpg" class="ImageBounds">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="../Images/MeandtheFam.jpg" class="ImageBounds">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="../Images/PepeHands.jpg" class="ImageBounds">
+            <div class="text" style="color:#1affff">When your CSS breaks everything</div>
+        </div>
+        <!-- Adds the side buttons to the images to change images, increments and decrements -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <!-- Adds the dots below there images that can change the current image -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+        <!-- Java-script for changing the slide shows -->
+        <script src="../JavaScript/SlideShow.js"></script>
+    </div>
+    <br>
+    <div class="Standard-Text">
+        <!-- Area stuff about me will go and the footer as a kind of disclaimer -->
+        <section>
+            <h1 class="Mid-Text-Controller"><u>
+                <i>You may be wondering what this websites purpose is, well the answer is quite simple.</i>
+                </u></h1>
+            <p> The main purpose of this website is to give clients and recruiters a better understanding of my current skill set. The secondary purpose is to give insight into what type of person I am prior to any communication. Have you ever had those moments
+                where the resume didn't match the character in the slightest bit? I'm sure we all have, this website is to prevent that from happening here.</p>
+        </section>
+        <section>
+            <h1 class="Mid-Text-Controller"><u><i>Who am I?</i></u></h1>
+            <p>My name is Trevor Alan Winn, I am prior AirForce and soon to be Computer science major with self taught knowledge in C++, C#, Python, Java-script, HTML, CSS. Currently my best language is C++ simply due to it being my first language I learned.</p>
+            <h2 class="Mid-Text-Controller"><u><i>What am I looking for?</i></u></h2>
+            <p>I am looking for a career in computer science to compliment my college courses, I don't want to just be good enough, I want to be ahead of my peers and strive further by jumping straight into the fray. I truly believe I have the ability necessary
+                to be a valuable asset to any team.</p>
+        </section>
+        <footer style="font-size:15px;">
+            <b>Please use the navigation bar above to continue to more specific information.</b>
+        </footer>
+    </div>
+    <br>
+    <div>
         <div style="color:orange">
             <div class="Small-Text-Controller">
                 <a class="SlideButtons" onclick="SlideStateUpdate(1)">Programming languages</a>
                 <div class="MenuSlides">
-                <section>Current programming languages I am familiar with: (but not limited to) C++, Python, Javascript, C#. <br> My familiarity is also in that order. <br> C++ is the language I learned first by watching videos called Absolute Noob Spoonfeed by antirtfm, I watched this when I was around 11 years old and would go back to them and other resources for the course of 7 years. Another resource that helped me greatly was the website Sololearn. <br> Python I learned by using my abundant C++ knowledge and using the python documentation and w3 schools. w3 schools was very helpful as it has great example code to visually see how things should be done, I am very confident in my python thanks to these resources. <br> My Javascript is proficient thanks to the coding train on Youtube and thanks to again w3 schools, most of my Javascript understanding is from coding train with w3 schools as a good refresher, the buttons on this website were done using Javascript, cool right! <br> My C# is iffy simply because I don't use it nearly as often as the others, I only really used C# for unity because making games is quite enjoyable, I have since started using godot hence why my C# is rusty. I used simply used my C++ and documentation to learn C#. It is pretty straightforward to transfer the knowledge over. <br> Do to learning different languages and debugging to build a understanding of what they are doing beneath the hood I believe I can learn any language in a timely manner and become truly proficient within a small amount of time.</section>
+                    <section>Current programming languages I am familiar with: (but not limited to) C++, Python, Javascript, C#. <br> My familiarity is also in that order. <br> C++ is the language I learned first by watching videos called Absolute Noob Spoonfeed
+                        by antirtfm, I watched this when I was around 11 years old and would go back to them and other resources for the course of 7 years. Another resource that helped me greatly was the website Sololearn. <br> Python I learned by using
+                        my abundant C++ knowledge and using the python documentation and w3 schools. w3 schools was very helpful as it has great example code to visually see how things should be done, I am very confident in my python thanks to these resources.
+                        <br> My Javascript is proficient thanks to the coding train on Youtube and thanks to again w3 schools, most of my Javascript understanding is from coding train with w3 schools as a good refresher, the buttons on this website were
+                        done using Javascript, cool right! <br> My C# is iffy simply because I don't use it nearly as often as the others, I only really used C# for unity because making games is quite enjoyable, I have since started using godot hence
+                        why my C# is rusty. I used simply used my C++ and documentation to learn C#. It is pretty straightforward to transfer the knowledge over. <br> Do to learning different languages and debugging to build a understanding of what they
+                        are doing beneath the hood I believe I can learn any language in a timely manner and become truly proficient within a small amount of time.</section>
+                </div>
+                <a class="SlideButtons" onclick="SlideStateUpdate(2)">My previous jobs</a>
+                <div class="MenuSlides">
+                    <h1> US Airforce </h1>
+                    <section> The US Airforce was actually my first job and my first pick. I wanted to go to the airforce for some simple reasons: <br> I wanted to follow in my families footsteps. My grandpa and uncles had all go into the military and it is a point
+                        of pride for us. <br> I had a love for programming before the Airforce, so part of the reason for joining the Airforce was to go to college without taking out student loans. I scored well on the asvab so I managed to qualify for
+                        a hardware based job which I was going to use to get me jump started on my understanding of computers. Sadly I got hurt and was sent home on medical separation.</section>
+                    <h1> Ingles Markets </h1>
+                    <section> Ingles was my second job, Starting out at ingles I was put in the gas station where I handled all of the paperwork related to the gas station which included all sales. (Food, Candy, Cigerettes, gas) I also took all calls related to
+                        the pumps, from customer service and corporate Ingles, I worked in the gas station for about 9 months. Afterwards I moved inside the store to run the U-scan, customer service related task and office cash handling. I did this for
+                        about 4 months. Finally my last job in Ingles was stocking dairy, I decided to transfer to dairy as a promotion, I stayed at dairy for about 1-2 months before I was offered a better job at a Adidas warehouse.</section>
+                    <h1> Adidas Warehouse </h1>
+                    <section> Adidas was a amazing job that I enjoyed greatly at first but sadly do to my prior injury at the Airforce it started to cause me so much pain that standing after work or even on my days off became impossible. I worked at Adidas for
+                        around 2-3 months. </section>
+                </div>
+                <a class="SlideButtons" onclick="SlideStateUpdate(3)">Downloadable Resume</a>
+                <div class="MenuSlides">
+                    <div style="padding:5px; text-align:center;" class="Small-Text-Controller">
+                        <h4 class="Mid-Text-Controller">My Resume</h4>
+                        <a href="./Trevor-Winn.pdf" download="./Trevor-Winn.pdf">
+                            <p>Trevor-Winn.pdf</p>
+                        </a>
+                        <p style="text-align:center">My resume may be updated with new <br>information at irregular itervals</p>
+                    </div>
+                </div>
+                <a class="SlideButtons" onclick="SlideStateUpdate(4)">Button 4</a>
+                <div class="MenuSlides">
+                    <section>Info 4</section>
+                </div>
+                <a class="SlideButtons" onclick="SlideStateUpdate(5)">Button 5</a>
+                <div class="MenuSlides">
+                    <section>Info 5</section>
+                </div>
+                <a class="SlideButtons" onclick="SlideStateUpdate(6)">Button 6</a>
+                <div class="MenuSlides">
+                    <section>Info 6</section>
+                </div>
             </div>
-            <a class="SlideButtons" onclick="SlideStateUpdate(2)">My previous jobs</a>
-            <div class="MenuSlides">
-                <h1> US Airforce </h1>
-            <section> The US Airforce was actually my first job and my first pick. I wanted to go to the airforce for some simple reasons: <br> I wanted to follow in my families footsteps. My grandpa and uncles had all go into the military and it is a point of pride for us. <br> I had a love for programming before the Airforce, so part of the reason for joining the Airforce was to go to college without taking out student loans. I scored well on the asvab so I managed to qualify for a hardware based job which I was going to use to get me jump started on my understanding of computers. Sadly I got hurt and was sent home on medical separation.</section>
-            <h1> Ingles Markets </h1>
-        <section> Ingles was my second job, Starting out at ingles I was put in the gas station where I handled all of the paperwork related to the gas station which included all sales. (Food, Candy, Cigerettes, gas) I also took all calls related to the pumps, from customer service and corporate Ingles, I worked in the gas station for about 9 months. Afterwards I moved inside the store to run the U-scan, customer service related task and office cash handling. I did this for about 4 months. Finally my last job in Ingles was stocking dairy, I decided to transfer to dairy as a promotion, I stayed at dairy for about 1-2 months before I was offered a better job at a Adidas warehouse.</section>
-        <h1> Adidas Warehouse </h1>
-    <section> Adidas was a amazing job that I enjoyed greatly at first but sadly do to my prior injury at the Airforce it started to cause me so much pain that standing after work or even on my days off became impossible. I worked at Adidas for around 2-3 months. </section>
-</div>
-<a class="SlideButtons" onclick="SlideStateUpdate(3)">Downloadable Resume</a>
-<div class="MenuSlides">
-    <div style="padding:10px; text-align:center;" class="Small-Text-Controller">
-        <h4 class="Mid-Text-Controller">My Resume</h4>
-        <a href="./Trevor-Winn.pdf" download="./Trevor-Winn.pdf"><p>Trevor-Winn.pdf</p></a>
-        <p style="text-align:center">My resume may be updated with new <br>information at irregular itervals</p>
-    </div>
-</div>
-<a class="SlideButtons" onclick="SlideStateUpdate(4)">Button 4</a>
-<div class="MenuSlides">
-<section>Info 4</section>
-</div>
-<a class="SlideButtons" onclick="SlideStateUpdate(5)">Button 5</a>
-<div class="MenuSlides">
-<section>Info 5</section>
-</div>
-<a class="SlideButtons" onclick="SlideStateUpdate(6)">Button 6</a>
-<div class="MenuSlides">
-<section>Info 6</section>
-</div>
-</div>
-</div>
-<script src="../JavaScript/About-Me.js"></script>
-<footer class="w3-container">
-<div class="Footer-Text-Controller"
-style="text-align:center; width:100%; color:orange;">
-<i>This page is going to include in-depth information about me<br>
-personally and professionally</i>
-</div>
-</footer>
+        </div>
+        <script src="../JavaScript/About-Me.js"></script>
+        <footer class="w3-container">
+            <div class="Footer-Text-Controller" style="text-align:center; width:100%; color:orange;">
+                <i>This page is going to include in-depth information about me<br>
+                    personally and professionally</i>
+            </div>
+        </footer>
 </body>
+
 </html>
