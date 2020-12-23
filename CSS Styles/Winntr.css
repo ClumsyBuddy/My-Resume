@@ -29,12 +29,13 @@
       user-select: none;
       background-color: black;
       border-style: solid;
+      border-radius: 10px;
       padding: 1px;
       display: block;
       text-align: center;
       margin-left: 40%;
       margin-right: 40%;
-      margin-top: 0.5%;
+      margin-top: 0.3%;
   }
   
   .SlideButtons:hover {
@@ -45,10 +46,13 @@
   .MenuSlides {
       display: none;
       text-align: center;
-      color: orange;
+      color: lightgrey;
       background: black;
+      border-style: solid;
+      border-radius: 20px;
       margin-right: 25%;
       margin-left: 25%;
+      padding: 1px;
   }
   /* Next & previous buttons */
   
@@ -225,8 +229,6 @@
   
   .Standard-Text {
       text-align: center;
-      padding: 10px;
-      margin-top: 10px;
       margin-left: 15%;
       margin-right: 15%;
   }
