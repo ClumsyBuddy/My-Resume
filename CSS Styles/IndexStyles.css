@@ -4,3 +4,9 @@
     background-attachment: fixed;
     background-size: cover;
 }
+
+.HeadingTextStyle {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
