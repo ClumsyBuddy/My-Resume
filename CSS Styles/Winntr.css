@@ -234,5 +234,8 @@
   }
   
   .NavFormat {
+      z-index: 9999;
       position: fixed;
+      margin-top: 0%;
+      padding: 0%;
   }
