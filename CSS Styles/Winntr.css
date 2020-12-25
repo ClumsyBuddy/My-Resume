@@ -40,7 +40,7 @@
   
   .SlideButtons:hover {
       cursor: pointer;
-      background: white;
+      background: darkgrey;
   }
   
   .MenuSlides {
