@@ -29,3 +29,14 @@
     background-color: white;
     color: black;
 }
+
+
+/*Style for the content to button shows if it shows content*/
+
+.CenterContentHolder {
+    display: none;
+    text-align: center;
+    margin-right: 25%;
+    margin-left: 25%;
+    padding: 1px;
+}
