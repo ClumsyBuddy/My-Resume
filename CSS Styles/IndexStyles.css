@@ -1,9 +1,14 @@
+/*Style to add a background image to the page, may remove this*/
+
 .FPageStyle {
     background-image: url(../Images/PersonProgramming.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
+
+
+/*Style for headers*/
 
 .HeadingTextStyle {
     color: black;
@@ -13,9 +18,15 @@
     padding: 20px;
 }
 
+
+/*Overwrite the button center style to this one to match the page better*/
+
 .CenterButtons:hover {
     background-color: lightgrey;
 }
+
+
+/*Style for coloring the buttons*/
 
 .ButtonColors {
     background-color: darkgrey;
