@@ -1,0 +1,10 @@
+.ButtonColors {
+    background-color: black;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.CenterButtons:hover {
+    background-color: lightgray;
+    border-color: white;
+}

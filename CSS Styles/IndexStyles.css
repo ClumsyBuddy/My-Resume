@@ -12,3 +12,15 @@
     margin: auto;
     padding: 20px;
 }
+
+.CenterButtons:hover {
+    background-color: lightgrey;
+}
+
+.ButtonColors {
+    background-color: darkgrey;
+    color: white;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+}
