@@ -2,3 +2,5 @@
 2. Breaking up css into multiple files for easier managing. Styles that are used all over the website get put into "Main" files. Such as buttoncontoller.
 3. Create Design for contact.html, possibly implement a comment or contact system.
 4. Remove projects.html to something more useful, put what was going into projects into about me button
+5. Learn php to all server processing
+5. Implement a comment section or a email section
