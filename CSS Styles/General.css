@@ -8,3 +8,9 @@
     bottom: 0;
     z-index: -1;
 }
+
+.HeaderBorder {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}

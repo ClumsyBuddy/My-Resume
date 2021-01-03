@@ -44,6 +44,7 @@
 
 .ButtonContentColor {
     background-color: lightgrey;
+    display: block;
     color: black;
     margin-left: 35%;
     margin-right: 35%;
@@ -55,4 +56,53 @@
 #BackgroundOverlay {
     background-color: rgba(255, 255, 255, 0.5);
     z-index: -1;
+}
+
+.Wrapper {
+    position: relative;
+    display: block;
+    margin: auto;
+    height: 90%;
+    width: 100%;
+}
+
+.WarpperHelper {
+    position: absolute;
+    display: block;
+    margin: auto;
+}
+
+.ContentOverlay {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.ContentLayoutLeft,
+.ContentLayoutRight {
+    color: black;
+    position: fixed;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 49.7%;
+    height: 100%;
+    margin: auto;
+    user-select: none;
+    overflow-wrap: break-word;
+    z-index: 1;
+}
+
+.ContentTextFormat {
+    text-align: center;
+}
+
+.ContentLayoutRight {
+    right: 0;
+    /*background-color: blue;*/
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
