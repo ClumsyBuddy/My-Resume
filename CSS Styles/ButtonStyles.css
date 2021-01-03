@@ -1,7 +1,7 @@
 /*Format for the navigation bar to keep it always in its position*/
 
 .NavFormat {
-    z-index: 9999;
+    z-index: 10;
     position: fixed;
     margin-top: 0%;
     padding: 0%;

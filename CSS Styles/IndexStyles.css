@@ -51,3 +51,8 @@
     border-radius: 10px;
     border-color: black;
 }
+
+#BackgroundOverlay {
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+}
