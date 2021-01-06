@@ -12,10 +12,11 @@
 
 .HeadingTextStyle {
     color: black;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     margin: auto;
     padding: 20px;
+    padding-top: 50px;
 }
 
 
@@ -63,17 +64,20 @@
     display: inline-block;
     margin: auto;
     height: 90%;
-    width: 100%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
 }
 
 .WarpperHelper {
     position: relative;
     display: block;
-    margin: auto;
+    margin: 0vw;
 }
 
 .ContentOverlay {
     background-color: rgba(0, 0, 0, 0.1);
+    border-style: solid;
+    border-radius: 10px;
 }
 
 .ContentLayoutLeft,
@@ -85,6 +89,7 @@
     width: 49.7%;
     height: 100%;
     margin: auto;
+    margin-top: 0.2%;
     user-select: none;
     overflow-wrap: break-word;
     z-index: 1;
@@ -93,6 +98,7 @@
 
 .ContentTextFormat {
     text-align: center;
+    font-size: 100%;
 }
 
 .ContentLayoutRight {
@@ -106,4 +112,17 @@
     bottom: 0;
     width: 100%;
     text-align: center;
+}
+
+.HeaderContraints {
+    max-width: 100%;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 1%;
+    font-size: calc(10px + 1.4vw);
+}
+
+p {
+    font-size: calc(16px + 0.1vw);
 }
