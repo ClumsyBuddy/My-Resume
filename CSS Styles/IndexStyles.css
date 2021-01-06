@@ -121,6 +121,7 @@
     margin: auto;
     margin-top: 1%;
     font-size: calc(10px + 1.4vw);
+    border-width: 2px;
 }
 
 p {
