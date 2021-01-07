@@ -23,52 +23,50 @@
     <div class="w3-container ">
         <h1 style="text-align:center; padding-top: 35px; ">I'm Trevor Winn</h1>
     </div>
-
-    <div class="slideshow-container ">
-        <!-- Set the position to relative to allow adjustable locations -->
-        <div class="mySlides fade " style="position:relative ">
-            <!-- Current image number -->
-            <div class="numbertext ">1 / 5</div>
-            <!-- Add the image, Imagebounds sizes the image for different resolutions, Default is 700,700 -->
-            <img src="../Images/MeandMyLove.jpg " class="ImageBounds ">
-            <!-- This is how I add tool-tips -->
-            <!-- Set the position to absolute so it wont change in the div, make the background transparent
-              Position the transparent rectangle based on percents so it works on all resolutions -->
+    <div class="SlideShowWrapper">
+        <div class="slideshow-container ">
+            <!-- Set the position to relative to allow adjustable locations -->
+            <div class="mySlides fade " style="position:relative ">
+                <!-- Current image number -->
+                <div class="numbertext ">1 / 5</div>
+                <!-- Add the image, Imagebounds sizes the image for different resolutions, Default is 700,700 -->
+                <img src="../Images/MeandMyLove.jpg " class="ImageBounds ">
+                <!-- This is how I add tool-tips -->
+                <!-- Set the position to absolute so it wont change in the div, make the background transparent
+            Position the transparent rectangle based on percents so it works on all resolutions -->
+            </div>
+            <!-- Repeat of slide 1 -->
+            <div class="mySlides fade ">
+                <div class="numbertext ">2 / 5</div>
+                <img src="../Images/MeandMum.jpg " class="ImageBounds ">
+            </div>
+            <div class="mySlides fade ">
+                <div class="numbertext ">3 / 5</div>
+                <img src="../Images/MeandSis.jpg " class="ImageBounds ">
+            </div>
+            <div class="mySlides fade ">
+                <div class="numbertext ">4 / 5</div>
+                <img src="../Images/MeandtheFam.jpg " class="ImageBounds ">
+            </div>
+            <div class="mySlides fade ">
+                <div class="numbertext ">5 / 5</div>
+                <img src="../Images/PepeHands.jpg " class="ImageBounds ">
+                <div style="color:#1affff; text-align: center; ">When your CSS breaks everything</div>
+            </div>
+            <!-- Adds the side buttons to the images to change images, increments and decrements -->
+            <a class="prev " onclick="plusSlides(-1) ">&#10094;</a>
+            <a class="next " onclick="plusSlides(1) ">&#10095;</a>
+            <!-- Adds the dots below there images that can change the current image -->
         </div>
-
-        <!-- Repeat of slide 1 -->
-        <div class="mySlides fade ">
-            <div class="numbertext ">2 / 5</div>
-            <img src="../Images/MeandMum.jpg " class="ImageBounds ">
+        <div style="text-align:center; padding: 5px; ">
+            <span class="dot " onclick="currentSlide(1) "></span>
+            <span class="dot " onclick="currentSlide(2) "></span>
+            <span class="dot " onclick="currentSlide(3) "></span>
+            <span class="dot " onclick="currentSlide(4) "></span>
+            <span class="dot " onclick="currentSlide(5) "></span>
         </div>
-
-        <div class="mySlides fade ">
-            <div class="numbertext ">3 / 5</div>
-            <img src="../Images/MeandSis.jpg " class="ImageBounds ">
-        </div>
-
-        <div class="mySlides fade ">
-            <div class="numbertext ">4 / 5</div>
-            <img src="../Images/MeandtheFam.jpg " class="ImageBounds ">
-        </div>
-
-        <div class="mySlides fade ">
-            <div class="numbertext ">5 / 5</div>
-            <img src="../Images/PepeHands.jpg " class="ImageBounds ">
-            <div style="color:#1affff; text-align: center; ">When your CSS breaks everything</div>
-        </div>
-        <!-- Adds the side buttons to the images to change images, increments and decrements -->
-        <a class="prev " onclick="plusSlides(-1) ">&#10094;</a>
-        <a class="next " onclick="plusSlides(1) ">&#10095;</a>
-        <!-- Adds the dots below there images that can change the current image -->
     </div>
-    <div style="text-align:center; padding: 5px; ">
-        <span class="dot " onclick="currentSlide(1) "></span>
-        <span class="dot " onclick="currentSlide(2) "></span>
-        <span class="dot " onclick="currentSlide(3) "></span>
-        <span class="dot " onclick="currentSlide(4) "></span>
-        <span class="dot " onclick="currentSlide(5) "></span>
-    </div>
+
     <!-- Java-script for changing the slide shows -->
     <script src="../JavaScript/SlideShow.js "></script>
     <br>
