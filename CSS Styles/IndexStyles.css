@@ -78,6 +78,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     border-style: solid;
     border-radius: 10px;
+    border-spacing: 1px;
 }
 
 .ContentLayoutLeft,
@@ -122,6 +123,7 @@
     margin-top: 1%;
     font-size: calc(10px + 1.4vw);
     border-width: 2px;
+    border-spacing: 1px;
 }
 
 p {
