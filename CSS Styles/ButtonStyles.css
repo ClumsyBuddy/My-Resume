@@ -41,9 +41,8 @@
     display: none;
     text-align: center;
     margin: auto;
-    width: 80%;
+    width: calc(300px + 40vw);
     max-width: 95%;
-    min-width: 60%;
     padding: 1px;
-    font-size: calc(12px + 0.6vw);
+    font-size: calc(13px + 0.6vw);
 }
