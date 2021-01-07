@@ -15,12 +15,14 @@
     position: relative;
     overflow: hidden;
     user-select: none;
-    padding: 1px;
+    padding: 2px;
     display: block;
     text-align: center;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-top: 0.3%;
+    width: 30%;
+    min-width: 20%;
+    margin: auto;
+    margin-top: 0.5%;
+    font-size: calc(8px + 0.9vw);
 }
 
 

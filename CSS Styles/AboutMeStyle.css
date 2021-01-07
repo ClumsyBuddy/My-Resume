@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box
+}
+
+
 /*Color the buttons for the page*/
 
 .ButtonColors {
@@ -14,12 +19,13 @@
     border-color: white;
 }
 
+.ButtonConstraint {
+    width: 80%;
+    margin: auto;
+}
+
 
 /*Below here is the css to control the slideshow, may move some if into different css files such as one for img styling*/
-
-* {
-    box-sizing: border-box
-}
 
 body {
     font-family: Verdana, sans-serif;
