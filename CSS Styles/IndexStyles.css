@@ -12,7 +12,7 @@
 
 .HeadingTextStyle {
     color: black;
-    font-size: 40px;
+    font-size: calc(16px + 2.0vw);
     text-align: center;
     margin: auto;
     padding: 20px;
