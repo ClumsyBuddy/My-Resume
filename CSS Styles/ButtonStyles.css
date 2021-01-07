@@ -5,7 +5,18 @@
     position: fixed;
     margin-top: 0%;
     padding: 0%;
-    font-size: calc(9px + 0.7vw);
+    font-size: calc(9px + 0.6vw);
+    color: white;
+    background-color: black;
+}
+
+.HomeButton {
+    position: fixed;
+    width: calc(20px + 1.5vw);
+    height: calc(20px + 1.5vh);
+    margin-left: 0.5%;
+    margin-top: 0%;
+    padding: 0%;
 }
 
 
@@ -15,7 +26,7 @@
     position: relative;
     overflow: hidden;
     user-select: none;
-    padding: 5px;
+    padding: 10px;
     display: block;
     text-align: center;
     width: calc(200px + 1vw);
