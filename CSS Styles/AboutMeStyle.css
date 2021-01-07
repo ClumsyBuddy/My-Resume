@@ -8,7 +8,9 @@
 .ButtonColors {
     background-color: black;
     border-style: solid;
+    border-spacing: 5px;
     border-radius: 10px;
+    border-color: white;
 }
 
 
@@ -16,12 +18,7 @@
 
 .CenterButtons:hover {
     background-color: lightgray;
-    border-color: white;
-}
-
-.ButtonConstraint {
-    width: 80%;
-    margin: auto;
+    border-color: black;
 }
 
 

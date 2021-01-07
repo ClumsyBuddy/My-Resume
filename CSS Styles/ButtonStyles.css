@@ -15,10 +15,10 @@
     position: relative;
     overflow: hidden;
     user-select: none;
-    padding: 2px;
+    padding: 5px;
     display: block;
     text-align: center;
-    width: 30%;
+    width: calc(400px + 2vw);
     min-width: 20%;
     margin: auto;
     margin-top: 0.5%;
