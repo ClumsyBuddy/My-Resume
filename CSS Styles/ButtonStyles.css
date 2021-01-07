@@ -18,8 +18,9 @@
     padding: 5px;
     display: block;
     text-align: center;
-    width: calc(400px + 2vw);
+    width: calc(200px + 1vw);
     min-width: 20%;
+    max-width: 90%;
     margin: auto;
     margin-top: 0.5%;
     font-size: calc(12px + 0.7vw);
