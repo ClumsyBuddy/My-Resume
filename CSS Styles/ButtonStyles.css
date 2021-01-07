@@ -2,21 +2,35 @@
 
 .NavFormat {
     z-index: 10;
-    position: fixed;
-    margin-top: 0%;
-    padding: 0%;
+    display: inline-block;
+    position: static;
+    float: none;
+    outline: 0;
+    width: 100%;
     font-size: calc(9px + 0.6vw);
-    color: white;
     background-color: black;
+    white-space: normal;
+    overflow: hidden;
+    border: none;
+    text-align: left;
 }
 
-.HomeButton {
-    position: fixed;
-    width: calc(20px + 1.5vw);
-    height: calc(20px + 1.5vh);
-    margin-left: 0.5%;
-    margin-top: 0%;
-    padding: 0%;
+.NavFormatItem:hover {
+    background-color: darkgrey!important;
+}
+
+.NavButton {
+    border: none;
+    vertical-align: middle;
+    display: inline-block;
+    user-select: none;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    white-space: normal;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
 }
 
 
