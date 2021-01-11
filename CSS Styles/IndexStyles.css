@@ -124,6 +124,7 @@
     width: 50%;
     margin: auto;
     margin-top: 1%;
+    margin-bottom: 1%;
     font-size: calc(10px + 1.4vw);
     border-width: 2px;
     border-spacing: 1px;
