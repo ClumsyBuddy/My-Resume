@@ -7,7 +7,7 @@ DisplayFinalCost(BaseCost)
 function CalcFinalCost() {
     var PageNumber = document.getElementById("PGNUM");
     MaxClamp(PageNumber);
-    PageCost = PageNumber.valueAsNumber * 5;
+    PageCost = (PageNumber.valueAsNumber - 1) * 5;
 
 
 
