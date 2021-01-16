@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../CSS Styles/Winntr.css">
 <link rel="stylesheet" href="../CSS Styles/ButtonStyles.css">
-<link rel="stylesheet" href="../CSS Styles/General.css">
+<link rel="stylesheet" href="../CSS Styles/General.css"> >
+<link rel="stylesheet" href="../CSS Styles/Pricing.css">
 
 <html lang="en-US">
 
@@ -24,35 +25,46 @@
     <div>
         <!--<iframe width="50%" height="500px" frameborder="0" src="https://docs.google.com/spreadsheets/d/1fgoXB7AVfQ1SOIm9tI_vWIT1RXoyThCY0JidWW12jV8/edit?usp=sharing&single=true&range=A1%3AB36&output=html&widget=true&rm=minimal" style="text-align: center; background:transparent; border: 1px solid;margin-top: 20px;"></iframe>-->
     </div>
-    <div>
-        <table style="margin:auto; margin-top: 5%;">
+    <div style="width: 100%; height: auto;">
+        <table class="tableFormat TableContainer">
             <tr>
                 <td>
-                    <div><em>Base Cost is 70$</em></div>
+                    <div class="PricingTDFormat PricingContainer"><em>Base Cost is 70$</em></div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>Quantity (Between 1 - 10)</label>
-                    <input id="PGNUM" name="PGNUM" type="number" max="11" min="1" value="1" size="2%">
+                    <div class="PricingTDFormat PricingContainer">
+                        <section>25$ per page</section>
+                        <label>Page quantity (Between 1- 10)</label>
+                        <input id="PGNUM" name="PGNUM" type="number" max="10" min="1" value="1">
+                    </div>
                 </td>
+            </tr>
+
+            <tr>
                 <td>
-                    <input type="submit" value="Click Me" onclick="CalcFinalCost()">
+                    <div class="PricingTDFormat PricingContainer">
+                        <label>Responsive website: 35$ </label>
+                        <input id="RPAGE" type="checkbox">
+                    </div>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <label for="quantity"> I dont do anything right now</label>
-                    <input id="BLAH" type="tel" maxlength="10" minlength="1" size="2%"></td>
-                <td><input type="button" value="Click Me" onclick="msg()"></input>
+                    <div class="PricingTDFormat PricingContainer">
+                        <label>Completely custom layout: 45$</label>
+                        <input id="CustomLayout" type="checkbox">
+                    </div>
                 </td>
             </tr>
-
-
             <tr>
                 <td>
-                    <output id="Final">0$</output>
+                    <div class="PricingTDFormat PricingContainer">
+                        <input type="submit" value="Click Me" onclick="CalcFinalCost()" style="margin-bottom: 1%;"><br>
+                        <output id="Final">0$</output>
+                    </div>
                 </td>
             </tr>
         </table>
