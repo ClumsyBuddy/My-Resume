@@ -6,7 +6,7 @@ FinalCost = 0;
 PricePerPage = 25;
 RevisionCost = 15;
 //Cost of items that can be true or false
-ResponsivePageCost = 30;
+ResponsivePageCost = 50;
 CustomLayoutPrice = 40;
 
 //Used to display the prices on the website automatically
@@ -97,23 +97,26 @@ function IsCheckMarked(id) {
 }
 
 
-
+//This function clamps the value when it is changed in realtime
 function ValueClamp(_doc) {
     var doc = document.getElementById(_doc);
+
     if (doc.valueAsNumber > doc.max) {
         doc.valueAsNumber = doc.max;
-    }
+    } //Clamp if value is above max
 
     if (doc.valueAsNumber < doc.min) {
         doc.valueAsNumber = doc.min;
-    }
+    } //Clamp if value is below min
 
     if (doc.value == "") {
         doc.valueAsNumber = doc.min;
-    }
+    } //Set Value to min if there is no value
 }
 
-
+//This function clamps on clicking calc price
+//Same as value clamp, possibly uneeded but I will leave incase I find bugs with
+//input santization
 function MinMaxClamp(doc) {
     if (doc.valueAsNumber > doc.max) {
         doc.valueAsNumber = doc.max;
