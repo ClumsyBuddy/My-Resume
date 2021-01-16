@@ -20,16 +20,46 @@
         <a href="./pricing.html" class="NavButton NavFormatItem">Pricing</a>
         <a href="../ContactMe/contact.html" class="NavButton NavFormatItem">Contact</a>
     </nav>
-    <div style="margin-top: 5%; padding-top: 30px;">
-        TO BE DONE
-    </div>
 
     <div>
-        <iframe width="50%" height="500px" frameborder="0" src="https://docs.google.com/spreadsheets/d/1fgoXB7AVfQ1SOIm9tI_vWIT1RXoyThCY0JidWW12jV8/edit?usp=sharing" style="text-align: center; background:transparent; border: 1px solid;margin-top: 20px;"></iframe>
+        <!--<iframe width="50%" height="500px" frameborder="0" src="https://docs.google.com/spreadsheets/d/1fgoXB7AVfQ1SOIm9tI_vWIT1RXoyThCY0JidWW12jV8/edit?usp=sharing&single=true&range=A1%3AB36&output=html&widget=true&rm=minimal" style="text-align: center; background:transparent; border: 1px solid;margin-top: 20px;"></iframe>-->
     </div>
+    <div>
+        <table style="margin:auto; margin-top: 5%;">
+            <tr>
+                <td>
+                    <div><em>Base Cost is 70$</em></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Quantity (Between 1 - 10)</label>
+                    <input id="PGNUM" name="PGNUM" type="number" max="11" min="1" value="1" size="2%">
+                </td>
+                <td>
+                    <input type="submit" value="Click Me" onclick="CalcFinalCost()">
+                </td>
+            </tr>
 
-    <footer class="footerformat">
-        <p style="text-align:center"><i>This Page is going to include my current pricing and <br>future pricing I think are worthy of being shown</i></p>
+            <tr>
+                <td>
+                    <label for="quantity"> I dont do anything right now</label>
+                    <input id="BLAH" type="tel" maxlength="10" minlength="1" size="2%"></td>
+                <td><input type="button" value="Click Me" onclick="msg()"></input>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <output id="Final">0$</output>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="../JavaScript/PriceMaker.js "></script>
+    <footer class="footerformat ">
+        <p style="text-align:center "><i>This Page is going to include my current pricing and <br>future pricing I think are worthy of being shown</i></p>
     </footer>
 </body>
 
