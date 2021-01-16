@@ -71,5 +71,7 @@
     width: calc(300px + 40vw);
     max-width: 95%;
     padding: 1px;
+    margin-top: 0.3%;
     font-size: calc(13px + 0.6vw);
+    border-radius: 10px;
 }
