@@ -1,11 +1,11 @@
 ✔ 1. Create design for index.html @done(21-01-03 15:58)
 ✔ 2. Breaking up css into multiple files for easier managing. Styles that are used all over the website get put into "Main" files. Such as buttoncontoller. @done(21-01-06 19:26)
 3. Create Design for contact.html, possibly implement a comment or contact system.
-4. Remove projects.html to something more useful, put what was going into projects into about me button
+✔ 4. Remove projects.html to something more useful, put what was going into projects into about me button @done(21-01-16 13:53)
 5. Learn php to all server processing
 5. Implement a comment section or a email section
 ✔ 6.Fix buttons on about me page (Buttons are way to small on lower resolutions) @done(21-01-06 19:41)
 8. Change background image to one nicer with text
-9. Remove w3 css from code, mainly nav bar
-10. Redo projects.html into pricing page
+✔ 9. Remove w3 css from code, mainly nav bar @done(21-01-16 13:53)
+✔ 10. Redo projects.html into pricing page @done(21-01-16 14:02)
 11. Make sure entire website is using responsive text and design
