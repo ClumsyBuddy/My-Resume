@@ -21,7 +21,8 @@
     border-color: white;
     background-color: black;
     border-radius: 15px;
-    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .PricingContainer {
