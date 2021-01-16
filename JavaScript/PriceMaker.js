@@ -5,25 +5,23 @@ PricePerPage = 25;
 ResponsivePageCost = 35;
 CustomLayoutPrice = 45;
 
+var IDS = ["RPAGE", "CustomLayout"];
+const Prices = [35, 45];
+
+
+
 DisplayFinalCost(BaseCost)
 
 function CalcFinalCost() {
     FinalCost = BaseCost;
 
-
     var PageNumber = document.getElementById("PGNUM");
     MaxClamp(PageNumber);
     PageCost = (PageNumber.valueAsNumber - 1) * PricePerPage;
 
-    if (IsCheckMarked("RPAGE")) {
-        FinalCost += ResponsivePageCost;
-    }
-    if (IsCheckMarked("CustomLayout")) {
-        FinalCost += CustomLayoutPrice;
-    }
+    CostToAdd = AddCost();
 
-
-    FinalCost += PageCost;
+    FinalCost += PageCost + CostToAdd;
     DisplayFinalCost(FinalCost);
 }
 
@@ -33,6 +31,16 @@ function DisplayFinalCost(Cost) {
     GetElement.value = Cost + "$";
 }
 
+
+function AddCost() {
+    var Total = 0;
+    for (var i = 0; i < IDS.length; i++) {
+        if (IsCheckMarked(IDS[i])) {
+            Total += Prices[i];
+        }
+    }
+    return Total;
+}
 
 
 function IsCheckMarked(id) {
