@@ -29,23 +29,37 @@
         <table class="tableFormat TableContainer">
             <tr>
                 <td>
-                    <div class="PricingTDFormat PricingContainer"><em>Base Cost is 70$</em></div>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <div class="PricingTDFormat PricingContainer">
-                        <section>25$ per page</section>
-                        <label>Page quantity (Between 1- 10)</label>
-                        <input id="PGNUM" name="PGNUM" type="number" max="10" min="1" value="1">
+                        <section class="PriceDisplays">Base Cost is </section>
+                        <section id="BaseCostDisplay" class="PriceDisplays">000</section>
                     </div>
                 </td>
             </tr>
-
             <tr>
                 <td>
                     <div class="PricingTDFormat PricingContainer">
-                        <label>Responsive website: 35$ </label>
+                        <section id="PagePriceDisplay" class="PriceDisplays">000</section>
+                        <section class="PriceDisplays">per page</section>
+                        <label style="display: block;">Page quantity (Between 1 - 10)</label>
+                        <input oninput="ValueClamp('PGNUM')" id="PGNUM" name="PGNUM" type="number" max="10" min="1" value="1">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="PricingTDFormat PricingContainer">
+                        <section id="RevisionPriceDisplay" class="PriceDisplays">000</section>
+                        <section class="PriceDisplays">per Revision</section>
+                        <label style="display:block">Revise entire page. (Between 0 - 20)</label>
+                        <input oninput="ValueClamp('Revise')" id="Revise" type="number" max="20" min="0" value="0">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="PricingTDFormat PricingContainer">
+                        <label>Responsive website:  </label>
+                        <section id="ResponsivePriceDisplay" class="PriceDisplays">000</section>
                         <input id="RPAGE" type="checkbox">
                     </div>
                 </td>
@@ -54,7 +68,8 @@
             <tr>
                 <td>
                     <div class="PricingTDFormat PricingContainer">
-                        <label>Completely custom layout: 45$</label>
+                        <label>Custom Website Layout: </label>
+                        <section id="CustomPriceDisplay" class="PriceDisplays">000</section>
                         <input id="CustomLayout" type="checkbox">
                     </div>
                 </td>
@@ -63,7 +78,7 @@
                 <td>
                     <div class="PricingTDFormat PricingContainer">
                         <input type="submit" value="Calculate Price" onclick="CalcFinalCost()" style="margin-bottom: 1%;"><br>
-                        <output id="Final">0$</output>
+                        <output id="Final">000</output>
                     </div>
                 </td>
             </tr>

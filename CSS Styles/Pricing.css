@@ -26,9 +26,14 @@
 }
 
 .PricingContainer {
+    display: block;
     border: 1px solid;
     border-color: white;
     border-radius: 10px;
     margin-left: calc(50px + 5vw);
     margin-right: calc(50px + 5vw);
+}
+
+.PriceDisplays {
+    display: inline;
 }
