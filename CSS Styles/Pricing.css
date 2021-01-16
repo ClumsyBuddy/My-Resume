@@ -1,8 +1,9 @@
 .tableFormat {
-    width: calc(200px + 30vw);
+    width: calc(100px + 50vw);
     margin-right: auto;
     margin-left: auto;
     margin-top: 3%;
+    user-select: none;
 }
 
 .PricingTDFormat {
