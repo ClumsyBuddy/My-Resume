@@ -27,6 +27,20 @@ var myGameArea = {
     },
     clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    Boundaries: function(Entity) {
+        if (Entity.x < 0) {
+            Entity.x = 0;
+        }
+        if (Entity.x > myGameArea.canvas.width) {
+            Entity.x = myGameArea.canvas.width;
+        }
+        if (Entity.y < 0) {
+            Entity.y = 0;
+        }
+        if (Entity.y > myGameArea.canvas.height) {
+            Entity.y = myGameArea.canvas.height;
+        }
     }
 }
 
@@ -54,16 +68,23 @@ function component(width, height, color, x, y, type) {
         this.x += this.speed * Math.sin(this.angle);
         this.y -= this.speed * Math.cos(this.angle);
     }
+    this.WindowResize = function() {
+        myGameArea.canvas.width = window.innerWidth * 0.90;
+        myGameArea.canvas.height = window.innerHeight * 0.90;
+    }
 }
 
 function updateGameArea() {
+    myGamePiece.WindowResize();
     myGameArea.clear();
     myGamePiece.moveAngle = 0;
     myGamePiece.speed = 0;
-    if (myGameArea.keys && myGameArea.keys[37]) { myGamePiece.moveAngle = -2; }
-    if (myGameArea.keys && myGameArea.keys[39]) { myGamePiece.moveAngle = 2; }
-    if (myGameArea.keys && myGameArea.keys[38]) { myGamePiece.speed = 3; }
-    if (myGameArea.keys && myGameArea.keys[40]) { myGamePiece.speed = -3; }
+    if (myGameArea.keys && myGameArea.keys[65] || myGameArea.keys && myGameArea.keys[37]) { myGamePiece.moveAngle = -3; }
+    if (myGameArea.keys && myGameArea.keys[68] || myGameArea.keys && myGameArea.keys[39]) { myGamePiece.moveAngle = 3; }
+    if (myGameArea.keys && myGameArea.keys[87] || myGameArea.keys && myGameArea.keys[38]) { myGamePiece.speed = 5; }
+    if (myGameArea.keys && myGameArea.keys[83] || myGameArea.keys && myGameArea.keys[40]) { myGamePiece.speed = -5; }
     myGamePiece.newPos();
+    myGameArea.Boundaries(myGamePiece);
     myGamePiece.update();
+
 }
