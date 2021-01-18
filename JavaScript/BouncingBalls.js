@@ -5,10 +5,7 @@ var cdoc = canvas.getContext("2d");
 
 /** @type {CanvasRenderingContext2D} */
 
-cdoc.fillStyle = "#FF0000";
-
-var RectAmount = (Math.random() * 10) + 1
-
+cdoc.fillStyle = "red";
 
 var Radius = 10;
 var BallX = 50;
@@ -22,7 +19,10 @@ function Rect(canvas, e) {
     cdoc.fill();
 }
 
-function DrawRect() {
+this.interval = setInterval(DrawRect, 25);
+
+function DrawRect(rectamount) {
+    RectAmount = (Math.random() * 1) + 1
     for (var i = 0; i < RectAmount; i++) {
         var x = (Math.random() * canvas.width) + 1
         var y = (Math.random() * canvas.height) + 1
