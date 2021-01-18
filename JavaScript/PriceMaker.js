@@ -30,7 +30,7 @@ function DisplayPrices() {
     var Displays = [];
     for (var i = 0; i < Display_Prices.length; i++) {
         Displays.push(document.getElementById(Display_Prices[i]));
-        Displays[i].textContent = (Prices[i] + "$")
+        Displays[i].textContent = ("$" + Prices[i])
     }
 }
 
@@ -52,7 +52,7 @@ function CalcFinalCost() {
 function DisplayFinalCost(Cost) {
 
     var GetElement = document.getElementById("Final");
-    GetElement.value = Cost + "$";
+    GetElement.value = "$" + Cost;
 }
 
 //Function that iterates each numbered item and then adds there respective prices

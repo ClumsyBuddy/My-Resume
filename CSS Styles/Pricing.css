@@ -9,7 +9,7 @@
 .PricingTDFormat {
     padding-top: 1%;
     padding-bottom: 1%;
-    color: white;
+    color: black;
     font-size: calc(8px + 0.5vw);
     /*
     margin-left: calc(50px + 0.9vw);
@@ -18,8 +18,8 @@
 
 .TableContainer {
     border: 1px solid;
-    border-color: white;
-    background-color: black;
+    border-color: black;
+    background: transparent;
     border-radius: 15px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -28,7 +28,7 @@
 .PricingContainer {
     display: block;
     border: 1px solid;
-    border-color: white;
+    border-color: black;
     border-radius: 10px;
     margin-left: calc(50px + 5vw);
     margin-right: calc(50px + 5vw);
