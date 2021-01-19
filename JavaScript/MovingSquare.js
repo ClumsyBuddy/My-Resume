@@ -4,7 +4,7 @@ var OtherRect = [];
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
-    for (var i = 0; i < 500; i++) {
+    for (var i = 0; i < 1000; i++) {
         xPos = (Math.random() * (window.innerWidth * 0.90)) + 1;
         yPos = (Math.random() * (window.innerHeight * 0.90)) + 1;
         rectWidth = 50;
@@ -103,6 +103,7 @@ function Rect(width, height, color, x, y, type) {
     this.moveAngle = 0;
     this.gravity = 0;
     this.friction = 0.25;
+    this.PushForce = 1000;
     this.velocity = { x: 0, y: 0 };
     this.x = x;
     this.y = y;
@@ -125,8 +126,8 @@ function Rect(width, height, color, x, y, type) {
         this.y -= this.velocity.y;
     }
     this.PhysicsUpdate = function() {
-        this.velocity.x = MinMaxClamp(this.velocity.x, -5, 5);
-        this.velocity.y = MinMaxClamp(this.velocity.y, -5, 5);
+        this.velocity.x = MinMaxClamp(this.velocity.x, -10, 10);
+        this.velocity.y = MinMaxClamp(this.velocity.y, -10, 10);
         if (this.velocity.x != 0) {
             if (this.velocity.x > 0) {
                 this.velocity.x -= this.friction;
@@ -151,16 +152,15 @@ function Rect(width, height, color, x, y, type) {
 
         if (mX <= this.x + _width && mX >= this.x - _width && mY <= this.y + _height && mY >= this.y - _height) {
             color = "green"
-            var PushForce = 5;
             if (mX > this.x) {
-                this.velocity.x -= PushForce;
+                this.velocity.x -= this.PushForce;
             } else if (mX < this.x) {
-                this.velocity.x += PushForce;
+                this.velocity.x += this.PushForce;
             }
             if (mY > this.y) {
-                this.velocity.y += PushForce;
+                this.velocity.y += this.PushForce;
             } else if (mY < this.y) {
-                this.velocity.y -= PushForce;
+                this.velocity.y -= this.PushForce;
             }
         }
     }
