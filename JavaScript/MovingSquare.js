@@ -1,10 +1,35 @@
 var myGamePiece;
 var OtherRect = [];
+var RectAmount = 50;
+
+function Reset() {
+    myGameArea.stop();
+    OtherRect = [];
+    RectAmount = 50;
+    document.getElementById("Rects").valueAsNumber = 50;
+    startGame(RectAmount);
+}
+
+
+function AddRect() {
+    doc = document.getElementById("Rects");
+    RectAmount = doc.valueAsNumber;
+    RectAmount = MinMaxClamp(RectAmount, doc.min, doc.max);
+    doc.valueAsNumber = RectAmount;
+    OtherRect = [];
+    for (var i = 0; i < RectAmount; i++) {
+        xPos = (Math.random() * (window.innerWidth * 0.90)) + 1;
+        yPos = (Math.random() * (window.innerHeight * 0.90)) + 1;
+        rectWidth = 50;
+        rectHeight = 50;
+        OtherRect.push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
+    }
+}
 
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < RectAmount; i++) {
         xPos = (Math.random() * (window.innerWidth * 0.90)) + 1;
         yPos = (Math.random() * (window.innerHeight * 0.90)) + 1;
         rectWidth = 50;
@@ -25,14 +50,17 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-        window.addEventListener('keydown', function(e) {
-            e.preventDefault();
+
+        window.addEventListener('keydown', KeyDown = function(e) {
             myGameArea.keys = (myGameArea.keys || []);
             myGameArea.keys[e.keyCode] = (e.type == "keydown");
         })
-        window.addEventListener('keyup', function(e) {
+
+        window.addEventListener('keyup', KeyUp = function(e) {
+            e.preventDefault();
             myGameArea.keys[e.keyCode] = (e.type == "keydown");
         })
+
         window.addEventListener('mousemove', function(e) {
             const rect = myGameArea.canvas.getBoundingClientRect()
             myGameArea.mousePosx = e.clientX - rect.left;
