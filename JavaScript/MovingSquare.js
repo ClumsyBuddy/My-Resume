@@ -4,9 +4,16 @@ var OtherRect = [];
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
-    OtherRect.push(new Rect(10, 10, "blue", 100, 225));
-    OtherRect.push(new Rect(30, 30, "blue", 225, 100));
-    OtherRect.push(new Rect(100, 100, "blue", 400, 100));
+    for (var i = 0; i < 500; i++) {
+        xPos = (Math.random() * (window.innerWidth * 0.90)) + 1;
+        yPos = (Math.random() * (window.innerHeight * 0.90)) + 1;
+        rectWidth = 50;
+        rectHeight = 50;
+        OtherRect.push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
+    }
+    //OtherRect.push(new Rect(10, 10, "blue", 100, 225));
+    //OtherRect.push(new Rect(30, 30, "blue", 225, 100));
+    //OtherRect.push(new Rect(100, 100, "blue", 400, 100));
     myGameArea.start();
 }
 
@@ -136,7 +143,6 @@ function Rect(width, height, color, x, y, type) {
                 this.velocity.y += this.friction;
             }
         }
-        console.log(this.velocity);
     }
     this.MouseCollision = function(mX, mY) {
         color = "blue"
@@ -145,7 +151,7 @@ function Rect(width, height, color, x, y, type) {
 
         if (mX <= this.x + _width && mX >= this.x - _width && mY <= this.y + _height && mY >= this.y - _height) {
             color = "green"
-            var PushForce = 1;
+            var PushForce = 5;
             if (mX > this.x) {
                 this.velocity.x -= PushForce;
             } else if (mX < this.x) {
@@ -183,8 +189,6 @@ function updateGameArea() {
         OtherRect[i].PhysicsUpdate();
         OtherRect[i].update();
     }
-
-    //console.log(myGameArea.mousePos.x);
 }
 
 
