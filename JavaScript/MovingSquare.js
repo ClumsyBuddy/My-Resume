@@ -94,7 +94,8 @@ function Rect(width, height, color, x, y, type) {
     this.speed = 0;
     this.angle = 0;
     this.moveAngle = 0;
-    this.gravity = 5;
+    this.gravity = 0;
+    this.friction = 0.25;
     this.velocity = { x: 0, y: 0 };
     this.x = x;
     this.y = y;
@@ -104,6 +105,7 @@ function Rect(width, height, color, x, y, type) {
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
         ctx.fillStyle = color;
+        ctx.lineWidth = 0;
         ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
         ctx.restore();
     }
@@ -112,29 +114,52 @@ function Rect(width, height, color, x, y, type) {
         this.x += this.speed * Math.sin(this.angle);
         this.y -= this.speed * Math.cos(this.angle);
         this.y += this.gravity;
+        this.x += this.velocity.x;
+        this.y -= this.velocity.y;
     }
     this.PhysicsUpdate = function() {
         this.velocity.x = MinMaxClamp(this.velocity.x, -5, 5);
         this.velocity.y = MinMaxClamp(this.velocity.y, -5, 5);
+        if (this.velocity.x != 0) {
+            if (this.velocity.x > 0) {
+                this.velocity.x -= this.friction;
+            }
+            if (this.velocity.x < 0) {
+                this.velocity.x += this.friction;
+            }
+        }
+        if (this.velocity.y != 0) {
+            if (this.velocity.y > 0) {
+                this.velocity.y -= this.friction;
+            }
+            if (this.velocity.y < 0) {
+                this.velocity.y += this.friction;
+            }
+        }
+        console.log(this.velocity);
     }
     this.MouseCollision = function(mX, mY) {
         color = "blue"
-        var _width = this.width / -2;
-        var _height = this.height / -2;
+        var _width = this.width * 0.50;
+        var _height = this.height * 0.50;
 
-        var r = {
-            A: { x: this.x - _width, y: this.y - _height },
-            B: { x: this.x + _width, y: this.y - _height },
-            C: { x: this.x - _width, y: this.y + _height },
-            D: { x: this.x + _width, y: this.y + _height }
+        if (mX <= this.x + _width && mX >= this.x - _width && mY <= this.y + _height && mY >= this.y - _height) {
+            color = "green"
+            var PushForce = 1;
+            if (mX > this.x) {
+                this.velocity.x -= PushForce;
+            } else if (mX < this.x) {
+                this.velocity.x += PushForce;
+            }
+            if (mY > this.y) {
+                this.velocity.y += PushForce;
+            } else if (mY < this.y) {
+                this.velocity.y -= PushForce;
+            }
         }
-        var MousePos = { x: mX, y: mY };
-        if (pointInRectangle(MousePos, r)) {
-            color = "green";
-        }
-
     }
 }
+
 
 
 
@@ -155,6 +180,7 @@ function updateGameArea() {
         OtherRect[i].newPos();
         myGameArea.Boundaries(OtherRect[i]);
         OtherRect[i].MouseCollision(myGameArea.mousePosx, myGameArea.mousePosy);
+        OtherRect[i].PhysicsUpdate();
         OtherRect[i].update();
     }
 
@@ -162,30 +188,6 @@ function updateGameArea() {
 }
 
 
-
-function pointInRectangle(m, r) {
-    var AB = vector(r.A, r.B);
-    var AD = vector(r.A, r.D);
-    var AM = vector(r.A, m);
-    var dotAMAB = dot(AM, AB);
-    var dotABAB = dot(AB, AB);
-    var dotAMAD = dot(AM, AD);
-    var dotADAD = dot(AD, AD);
-
-    return 0 <= dotAMAB && dotAMAB <= dotABAB && 0 <= dotAMAD && dotAMAD <= dotADAD;
-}
-
-function vector(p1, p2) {
-    return {
-        x: (p2.x - p1.x),
-        y: (p2.y - p1.y)
-    };
-}
-
-function dot(u, v) {
-    // return (u.x*u.x+u.y*u.y)*(v.x*v.x+v.y*v.y);
-    return u.x * v.x + u.y * v.y;
-}
 
 
 function MinMaxClamp(Value, Min = '', Max = '') {
