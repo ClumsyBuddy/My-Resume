@@ -1,10 +1,12 @@
 var myGamePiece;
-var OtherRect;
+var OtherRect = [];
 
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
-    OtherRect = new Rect(30, 30, "blue", 225, 225);
+    OtherRect.push(new Rect(10, 10, "blue", 100, 225));
+    OtherRect.push(new Rect(30, 30, "blue", 225, 100));
+    OtherRect.push(new Rect(100, 100, "blue", 400, 100));
     myGameArea.start();
 }
 
@@ -26,7 +28,8 @@ var myGameArea = {
         })
         window.addEventListener('mousemove', function(e) {
             const rect = myGameArea.canvas.getBoundingClientRect()
-            myGameArea.mousePos = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+            myGameArea.mousePosx = e.clientX - rect.left;
+            myGameArea.mousePosy = e.clientY - rect.top;
         })
         window.addEventListener('resize', function(e) {
             myGameArea.canvas.width = window.innerWidth * 0.90;
@@ -40,17 +43,17 @@ var myGameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
     Boundaries: function(Entity) {
-        if (Entity.x < 0) {
-            Entity.x = 0;
+        if (Entity.x < 0 + (Entity.width / 2)) {
+            Entity.x = 0 + (Entity.width / 2);
         }
-        if (Entity.x > myGameArea.canvas.width) {
-            Entity.x = myGameArea.canvas.width;
+        if (Entity.x > myGameArea.canvas.width - (Entity.width / 2)) {
+            Entity.x = myGameArea.canvas.width - (Entity.width / 2);
         }
-        if (Entity.y < 0) {
-            Entity.y = 0;
+        if (Entity.y < 0 + (Entity.height / 2)) {
+            Entity.y = 0 + (Entity.height / 2);
         }
-        if (Entity.y > myGameArea.canvas.height) {
-            Entity.y = myGameArea.canvas.height;
+        if (Entity.y > myGameArea.canvas.height - (Entity.height / 2)) {
+            Entity.y = myGameArea.canvas.height - (Entity.height / 2);
         }
     },
 }
@@ -87,6 +90,7 @@ function Rect(width, height, color, x, y, type) {
     this.type = type;
     this.width = width;
     this.height = height;
+    this.color = color;
     this.speed = 0;
     this.angle = 0;
     this.moveAngle = 0;
@@ -113,6 +117,23 @@ function Rect(width, height, color, x, y, type) {
         this.velocity.x = MinMaxClamp(this.velocity.x, -5, 5);
         this.velocity.y = MinMaxClamp(this.velocity.y, -5, 5);
     }
+    this.MouseCollision = function(mX, mY) {
+        color = "blue"
+        var _width = this.width / -2;
+        var _height = this.height / -2;
+
+        var r = {
+            A: { x: this.x - _width, y: this.y - _height },
+            B: { x: this.x + _width, y: this.y - _height },
+            C: { x: this.x - _width, y: this.y + _height },
+            D: { x: this.x + _width, y: this.y + _height }
+        }
+        var MousePos = { x: mX, y: mY };
+        if (pointInRectangle(MousePos, r)) {
+            color = "green";
+        }
+
+    }
 }
 
 
@@ -130,17 +151,41 @@ function updateGameArea() {
     myGameArea.Boundaries(myGamePiece);
     myGamePiece.update();
     //Testing piece
-    OtherRect.newPos();
-    myGameArea.Boundaries(OtherRect);
-    OtherRect.update();
+    for (var i = 0; i < OtherRect.length; i++) {
+        OtherRect[i].newPos();
+        myGameArea.Boundaries(OtherRect[i]);
+        OtherRect[i].MouseCollision(myGameArea.mousePosx, myGameArea.mousePosy);
+        OtherRect[i].update();
+    }
 
-    //console.log(myGameArea.mousePos.x)
+    //console.log(myGameArea.mousePos.x);
 }
 
 
 
+function pointInRectangle(m, r) {
+    var AB = vector(r.A, r.B);
+    var AD = vector(r.A, r.D);
+    var AM = vector(r.A, m);
+    var dotAMAB = dot(AM, AB);
+    var dotABAB = dot(AB, AB);
+    var dotAMAD = dot(AM, AD);
+    var dotADAD = dot(AD, AD);
 
+    return 0 <= dotAMAB && dotAMAB <= dotABAB && 0 <= dotAMAD && dotAMAD <= dotADAD;
+}
 
+function vector(p1, p2) {
+    return {
+        x: (p2.x - p1.x),
+        y: (p2.y - p1.y)
+    };
+}
+
+function dot(u, v) {
+    // return (u.x*u.x+u.y*u.y)*(v.x*v.x+v.y*v.y);
+    return u.x * v.x + u.y * v.y;
+}
 
 
 function MinMaxClamp(Value, Min = '', Max = '') {
