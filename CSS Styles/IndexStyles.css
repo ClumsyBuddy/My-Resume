@@ -12,11 +12,12 @@
 
 .HeadingTextStyle {
     color: black;
-    font-size: calc(16px + 2.0vw);
+    font-size: calc(20px + 2.0vw);
+    font-weight: 750;
     text-align: center;
     margin: auto;
-    padding: 20px;
-    padding-top: 50px;
+    padding: 25px;
+    padding-top: 35px;
 }
 
 
@@ -128,6 +129,7 @@
     font-size: calc(10px + 1.4vw);
     border-width: 2px;
     border-spacing: 1px;
+    font-weight: 500;
 }
 
 p {
