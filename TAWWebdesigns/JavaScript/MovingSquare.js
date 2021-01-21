@@ -154,8 +154,8 @@ function Rect(width, height, color, x, y, type) {
         this.y -= this.velocity.y;
     }
     this.PhysicsUpdate = function() {
-        this.velocity.x = MinMaxClamp(this.velocity.x, -10, 10);
-        this.velocity.y = MinMaxClamp(this.velocity.y, -10, 10);
+        this.velocity.x = MinMaxClamp(this.velocity.x, -5, 5);
+        this.velocity.y = MinMaxClamp(this.velocity.y, -5, 5);
         if (this.velocity.x != 0) {
             if (this.velocity.x > 0) {
                 this.velocity.x -= this.friction;
