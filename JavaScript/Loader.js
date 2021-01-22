@@ -39,4 +39,30 @@ function RemoveScript(_script = null) {
             }
         }
     }
+    return true;
+}
+
+
+
+function Init(func = null) {
+    //AddScript(_ScriptName);
+    if (func != null) {
+        StartFunctions(func);
+    }
+}
+
+
+function StartFunctions(func) {
+    var fn = [];
+    var Splitnames = func.split(',');
+    for (var i = 0; i < Splitnames.length; i++) {
+        fn.push(window[Splitnames[i]]);
+    }
+    for (var i = 0; i < fn.length; i++) {
+        if (typeof fn === 'function') {
+            fn.apply();
+            console.log(fn);
+        }
+    }
+    console.log("EXIT");
 }
