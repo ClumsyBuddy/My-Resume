@@ -53,8 +53,6 @@ function DisplayFinalCost(Cost) {
 
     var GetElement = document.getElementById("Final");
     GetElement.value = "$" + Cost;
-
-    SendAlert("Hello World");
 }
 
 //Function that iterates each numbered item and then adds there respective prices

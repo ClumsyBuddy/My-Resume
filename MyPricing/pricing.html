@@ -10,6 +10,13 @@
 
 <head>
     <title>My pricing</title>
+
+
+    <script src="../JavaScript/Loader.js"></script>
+    <div id="LoadScripts">
+    </div>
+
+
 </head>
 
 <body style="background-color: darkgrey; color: black; text-align: center;"  onload="AddScript('API.js,PriceMaker.js,MovingSquare.js')">
@@ -24,6 +31,7 @@
         <input type="submit" value="Reset" onclick="Reset()" style=" top: 5%; left: 1%; position: fixed; z-index: 1; font-size: calc(8px + 0.4vw);"></input>
         <input type="submit" value="Add" onclick="AddRect()" style=" top: 5%; left: calc(50px + 1.5vw); position: fixed; z-index: 1; font-size: calc(8px + 0.4vw);"></input>
         <input id="Rects" type="number" style="top: 5%; left: calc(100px + 1.5vw); position: fixed; z-index: 1; font-size: calc(8px + 0.4vw); width: calc(100px + 1vw);" max="5000" min="0" value="50"></input>
+        <input onclick="RemoveScript('API.js')">
     </div>
 
     <div id="BackgroundCanvas" style="position: fixed; width: 100%; margin-top: calc(50px + 1vw); z-index: -1; height: 98%;">
@@ -87,9 +95,6 @@
                 </td>
             </tr>
         </table>
-    </div>
-    <script src="../JavaScript/Loader.js"></script>
-    <div id="LoadedScripts">
     </div>
     <footer class="footerformat ">
         <p style="text-align:center "><i>This Page is going to include my current pricing and <br>future pricing I think are worthy of being shown</i></p>
