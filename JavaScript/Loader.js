@@ -45,7 +45,7 @@ function RemoveScript(_script = null) {
 
 
 
-function Init(_ScriptName, func) {
+function Init(_ScriptName, func, waittime) {
     var FailSafe = 0;
     while (AddScript(_ScriptName) != true) {
 
@@ -56,7 +56,7 @@ function Init(_ScriptName, func) {
         console.log(FailSafe);
     }
     console.log('HELLLO');
-    setTimeout(function() { StartFunctions(func) }, 100);
+    setTimeout(function() { StartFunctions(func) }, waittime);
 }
 
 
