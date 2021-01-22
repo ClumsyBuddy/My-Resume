@@ -12,6 +12,7 @@ function AddScript(ScriptName) {
         script_tag[j].setAttribute('class', 'LoadedScripts'); //Add a class for easy removal later
         document.getElementById("LoadScripts").appendChild(script_tag[j]); //Apend the child to a element with the loadscripts id where all scripts will be located
     }
+    return true;
 }
 
 
@@ -44,25 +45,25 @@ function RemoveScript(_script = null) {
 
 
 
-function Init(func = null) {
-    //AddScript(_ScriptName);
-    if (func != null) {
-        StartFunctions(func);
+function Init(_ScriptName, func) {
+    var FailSafe = 0;
+    while (AddScript(_ScriptName) != true) {
+
+        if (FailSafe > 10000) {
+            break;
+        }
+        FailSafe += 1;
+        console.log(FailSafe);
     }
+    console.log('HELLLO');
+    setTimeout(function() { StartFunctions(func) }, 100);
 }
 
 
 function StartFunctions(func) {
-    var fn = [];
     var Splitnames = func.split(',');
     for (var i = 0; i < Splitnames.length; i++) {
-        fn.push(window[Splitnames[i]]);
-    }
-    for (var i = 0; i < fn.length; i++) {
-        if (typeof fn === 'function') {
-            fn.apply();
-            console.log(fn);
-        }
+        window[Splitnames[i]]();
     }
     console.log("EXIT");
 }
