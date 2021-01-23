@@ -8,8 +8,8 @@
 
 .PricingTDFormat {
     padding-top: 1%;
-    padding-bottom: 1%;
-    color: black;
+    padding-bottom: 0.3%;
+    color: white;
     font-size: calc(8px + 0.5vw);
     /*
     margin-left: calc(50px + 0.9vw);
@@ -17,17 +17,17 @@
 }
 
 .TableContainer {
-    border: 1px solid;
-    border-color: black;
+    border: 5px solid;
+    border-color: white;
     border-radius: 15px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .PricingContainer {
     display: block;
-    border: 1px solid;
-    border-color: black;
+    border: 3px solid;
+    border-color: white;
     border-radius: 10px;
     margin-left: calc(50px + 5vw);
     margin-right: calc(50px + 5vw);
