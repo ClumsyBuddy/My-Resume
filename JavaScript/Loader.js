@@ -8,12 +8,18 @@ function AddScript(ScriptName) {
     } catch (err) {
         console.error(err + " " + ScriptName);
     }
-
     var DifferentScripts = ScriptName.split(','); //This allows one to add multiple scripts at once each script is split by the , 
     var Path = "../JavaScript/"; //Path to scripts
-
     var script_tag = []; //Holds all of the scripts
     for (var i = 0; i < DifferentScripts.length; i++) {
+        try {
+            var temp = DifferentScripts[i].split('.');
+            if (temp[1] != 'js') throw 'Missing Extension: ';
+        } catch (err) {
+            console.error(err + DifferentScripts[i]);
+            DifferentScripts.splice(i, 1);
+        }
+
         try { script_tag.push(document.createElement("script")); } //Push script tag into array
         catch { console.error("Could not create tag script"); }
     }
@@ -23,11 +29,14 @@ function AddScript(ScriptName) {
         catch { console.error("Could not create source path: " + script_tag[j]); }
         script_tag[j].setAttribute('class', 'LoadedScripts'); //Add a class for easy removal later
         script_tag[j].setAttribute('type', 'text/javascript'); //Add a type attribute to scripts
-        try { document.getElementById("LoadScripts").appendChild(script_tag[j]) } //Apend the child to a element with the loadscripts id where all scripts will be located
-        catch { console.error("Could not append to LoadScripts as child: " + script_tag[j].src); }
+        var temp = j;
+        document.getElementById("LoadScripts").appendChild(script_tag[j]);
+        //Apend the child to a element with the loadscripts id where all scripts will be located
+
     }
     return true;
 }
+
 
 //Function to remove scripts, can remove all loaded scripts or can remove select ones based on file name
 function RemoveScript(_script = null) {
