@@ -198,7 +198,9 @@ function Rect(width, height, color, x, y, type) {
 
 
 function updateGameArea() {
+
     myGameArea.clear();
+    /*
     myGamePiece.moveAngle = 0;
     myGamePiece.speed = 0;
     if (myGameArea.keys && myGameArea.keys[65] || myGameArea.keys && myGameArea.keys[37]) { myGamePiece.moveAngle = -3; }
@@ -210,6 +212,7 @@ function updateGameArea() {
     myGameArea.Boundaries(myGamePiece);
     myGamePiece.update();
     //Testing piece
+    */
     for (var i = 0; i < OtherRect.length; i++) {
         OtherRect[i].newPos();
         myGameArea.Boundaries(OtherRect[i]);

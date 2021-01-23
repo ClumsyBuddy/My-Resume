@@ -36,3 +36,11 @@
 .PriceDisplays {
     display: inline;
 }
+
+.ContactHeading {
+    font-weight: 600;
+}
+
+.InputFields {
+    padding: 10px;
+}
