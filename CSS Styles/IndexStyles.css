@@ -12,7 +12,7 @@
 
 .HeadingTextStyle {
     color: black;
-    font-size: calc(20px + 2.0vw);
+    font-size: calc(8px + 4vw);
     font-weight: 750;
     text-align: center;
     margin: auto;
@@ -88,10 +88,11 @@
     position: relative;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 0.1%;
     width: 49.7%;
     height: 100%;
     margin: auto;
-    margin-top: 0.2%;
+    margin-bottom: 1%;
     user-select: none;
     overflow-wrap: break-word;
     z-index: 1;
@@ -122,14 +123,23 @@
 .HeaderContraints {
     max-width: 100%;
     text-align: center;
-    width: 50%;
+    width: max-content;
     margin: auto;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
     margin-top: 1%;
-    margin-bottom: 1%;
-    font-size: calc(10px + 1.4vw);
+    margin-bottom: 0.5%;
+    font-size: calc(5px + 2vw);
     border-width: 2px;
     border-spacing: 1px;
     font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+    .HeaderContraints {
+        border-radius: 5px;
+    }
 }
 
 p {
