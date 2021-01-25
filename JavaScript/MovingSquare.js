@@ -1,6 +1,9 @@
 var myGamePiece;
 var OtherRect = [];
 var RectAmount = 50;
+var WidthOffset = 0.75;
+var HeightOffset = 0.90;
+
 
 function Reset() {
     myGameArea.stop();
@@ -18,8 +21,8 @@ function AddRect() {
     doc.valueAsNumber = RectAmount;
     OtherRect = [];
     for (var i = 0; i < RectAmount; i++) {
-        xPos = (Math.random() * (window.innerWidth * 0.90)) + 1;
-        yPos = (Math.random() * (window.innerHeight * 0.90)) + 1;
+        xPos = (Math.random() * (window.innerWidth * WidthOffset)) + 1;
+        yPos = (Math.random() * (window.innerHeight * HeightOffset)) + 1;
         rectWidth = 50;
         rectHeight = 50;
         OtherRect.push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
@@ -30,8 +33,8 @@ function AddRect() {
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
     for (var i = 0; i < RectAmount; i++) {
-        xPos = (Math.random() * (window.innerWidth * 0.90)) + 1;
-        yPos = (Math.random() * (window.innerHeight * 0.90)) + 1;
+        xPos = (Math.random() * (window.innerWidth * WidthOffset)) + 1;
+        yPos = (Math.random() * (window.innerHeight * HeightOffset)) + 1;
         rectWidth = 50;
         rectHeight = 50;
         OtherRect.push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
@@ -45,8 +48,8 @@ function startGame() {
 var myGameArea = {
     canvas: document.getElementById("PricingCanvas"),
     start: function() {
-        this.canvas.width = window.innerWidth * 0.90;
-        this.canvas.height = window.innerHeight * 0.90;
+        this.canvas.width = window.innerWidth * WidthOffset;
+        this.canvas.height = window.innerHeight * HeightOffset;
         this.context = this.canvas.getContext("2d");
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
@@ -67,8 +70,8 @@ var myGameArea = {
             myGameArea.mousePosy = e.clientY - rect.top;
         })
         window.addEventListener('resize', function(e) {
-            myGameArea.canvas.width = window.innerWidth * 0.90;
-            myGameArea.canvas.height = window.innerHeight * 0.90;
+            myGameArea.canvas.width = window.innerWidth * WidthOffset;
+            myGameArea.canvas.height = window.innerHeight * HeightOffset;
         })
     },
     stop: function() {
