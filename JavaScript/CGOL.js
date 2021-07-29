@@ -39,9 +39,6 @@ var myGameArea = {
             myGameArea.keys[e.keyCode] = (e.type == "keydown");
         })
         window.addEventListener("mousedown", function(e) {
-            if (e === 1) {
-                console.log("Clicked");
-            }
             myGameArea.MouseClicked = true;
         });
         window.addEventListener("mouseup", function(e) {
