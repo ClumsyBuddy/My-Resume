@@ -31,14 +31,21 @@ var myGameArea = {
         this.canvas.height = CanvasSizeHeight;
         this.context = this.canvas.getContext("2d");
         this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 10);
+        this.interval = setInterval(updateGameArea, 1);
+        this.LOD = false;
 
         window.addEventListener('keydown', KeyDown = function(e) {
             myGameArea.keys = (myGameArea.keys || []);
             myGameArea.keys[e.keyCode] = (e.type == "keydown");
         })
         window.addEventListener("mousedown", function(e) {
+            if (e === 1) {
+                console.log("Clicked");
+            }
             myGameArea.MouseClicked = true;
+        });
+        window.addEventListener("mouseup", function(e) {
+            myGameArea.MouseClicked = false;
         });
         window.addEventListener('keyup', KeyUp = function(e) {
             e.preventDefault();
@@ -88,15 +95,23 @@ function Rect(width, height, color, x, y) {
     this.MouseCollision = function(mX, mY) {
         if (mX > this.x && mX < (this.x + this.width) && mY > this.y && mY < (this.y + this.height)) {
             if (myGameArea.MouseClicked === true) {
-                this.alive = !this.alive;
+                if (myGameArea.LOD === false) {
+                    this.alive = true
+                } else {
+                    this.alive = false;
+                }
+
             } else if (this.alive === false) {
                 color = "grey";
             }
-            myGameArea.MouseClicked = false;
             //console.log("Mouse X:", mX, "Mouse y:", mY, "Rect x:",
             //this.x, "Rect y:", this.y, "Rect width:", this.width, "Rect height:", this.height);
         }
     }
+}
+
+function LifeOrDeath() {
+    myGameArea.LOD = !myGameArea.LOD;
 }
 
 function Handle_Rects() {
@@ -108,7 +123,6 @@ function Handle_Rects() {
 
 
 function updateGameArea() {
-
     myGameArea.clear();
     Handle_Rects();
 
