@@ -31,7 +31,7 @@ var myGameArea = {
         this.canvas.height = CanvasSizeHeight;
         this.context = this.canvas.getContext("2d");
         this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 1);
+        this.interval = setInterval(updateGameArea, 10);
         this.LOD = false;
 
         window.addEventListener('keydown', KeyDown = function(e) {
