@@ -1,4 +1,3 @@
-var Rects = [];
 var Offset = 1;
 var CanvasSizeWidth = window.innerWidth * Offset;
 var CanvasSizeHeight = window.innerHeight * Offset;
@@ -8,17 +7,31 @@ var RectControl = false;
 var RectWidth = CanvasSizeWidth / rectSize;
 var RectHeight = CanvasSizeHeight / rectSize;
 
-function Start_Game() {
-    for (var i = 0; i < RectWidth; i++) {
-        for (var j = 0; j < RectHeight; j++) {
+
+
+var EraserControl = document.getElementById("Eraser");
+
+
+var CurrentGeneration = []
+
+function CreateBoard(a, b) {
+    arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        arr[i].push([]);
+        for (var j = 0; j < arr[i].length; j++) {
             xPos = rectSize * i;
             yPos = rectSize * j;
             rectWidth = rectSize;
             rectHeight = rectSize;
-            Rects.push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
+            arr[i][j].push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
         }
 
     }
+}
+
+function Start_Game() {
+    CreateBoard(RectWidth, RectHeight);
+    console.log(CurrentGeneration);
     myGameArea.start();
 }
 
@@ -90,8 +103,10 @@ function Rect(width, height, color, x, y) {
                     this.alive = false;
                 }
 
-            } else if (this.alive === false) {
+            } else if (this.alive === false && myGameArea.LOD === false) {
                 color = "grey";
+            } else if (this.alive === true && myGameArea.LOD === true) {
+                color = "white";
             }
             //console.log("Mouse X:", mX, "Mouse y:", mY, "Rect x:",
             //this.x, "Rect y:", this.y, "Rect width:", this.width, "Rect height:", this.height);
@@ -101,18 +116,36 @@ function Rect(width, height, color, x, y) {
 
 function LifeOrDeath() {
     myGameArea.LOD = !myGameArea.LOD;
+    if (myGameArea.LOD === true) {
+        EraserControl.style.color = "black";
+        EraserControl.style.backgroundColor = "white";
+        EraserControl.textContent = "Erasing";
+    } else {
+        EraserControl.style.color = "white";
+        EraserControl.style.backgroundColor = "black";
+        EraserControl.textContent = "Drawing";
+
+    }
 }
 
-function Handle_Rects() {
-    for (var i = 0; i < Rects.length; i++) {
-        Rects[i].update();
-        Rects[i].MouseCollision(myGameArea.mousePosx, myGameArea.mousePosy);
+function UpdateRects() {
+    for (var i = 0; i < CurrentGeneration.length; i++) {
+        CurrentGeneration[i].update();
+        CurrentGeneration[i].MouseCollision(myGameArea.mousePosx, myGameArea.mousePosy);
+    }
+}
+
+function Handle_Generations() {
+    for (var i = 0; i < CurrentGeneration.length; i++) {
+        for (var j = 0; j < CurrentGeneration.length; j++) {
+
+        }
     }
 }
 
 
 function updateGameArea() {
     myGameArea.clear();
-    Handle_Rects();
+    UpdateRects();
 
 }
