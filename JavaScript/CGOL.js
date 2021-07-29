@@ -34,20 +34,12 @@ var myGameArea = {
         this.interval = setInterval(updateGameArea, 10);
         this.LOD = false;
 
-        window.addEventListener('keydown', KeyDown = function(e) {
-            myGameArea.keys = (myGameArea.keys || []);
-            myGameArea.keys[e.keyCode] = (e.type == "keydown");
-        })
         window.addEventListener("mousedown", function(e) {
             myGameArea.MouseClicked = true;
         });
         window.addEventListener("mouseup", function(e) {
             myGameArea.MouseClicked = false;
         });
-        window.addEventListener('keyup', KeyUp = function(e) {
-            e.preventDefault();
-            myGameArea.keys[e.keyCode] = (e.type == "keydown");
-        })
         window.addEventListener('mousemove', function(e) {
             const rect = myGameArea.canvas.getBoundingClientRect()
             myGameArea.mousePosx = e.clientX - rect.left;
