@@ -1,7 +1,7 @@
 var Offset = 1;
 var CanvasSizeWidth = window.innerWidth * Offset;
 var CanvasSizeHeight = window.innerHeight * Offset;
-var rectSize = 20;
+var rectSize = 15;
 var RectControl = false;
 var RectWidth = CanvasSizeWidth / rectSize;
 var RectHeight = CanvasSizeHeight / rectSize;
@@ -51,6 +51,8 @@ var myGameArea = {
             if (e.key == "o") {
                 console.log("Updategame: ", myGameArea.UpdateGame);
                 myGameArea.UpdateGame = !myGameArea.UpdateGame;
+            } else if (e.key == "p") {
+                console.log(CurrentGeneration);
             }
         });
         window.addEventListener("mousedown", function(e) {
@@ -150,10 +152,8 @@ function Handle_Generations() {
     NextGeneration = CurrentGeneration;
     for (var i = 0; i < RectWidth; i++) {
         for (var j = 0; j < RectHeight; j++) {
-
             for (var x = -1; x < 2; x++) {
                 for (var y = -1; y < 2; y++) {
-
                     if (x == 0 && y == 0) {
                         continue;
                     } else {
@@ -162,7 +162,7 @@ function Handle_Generations() {
 
                         var cols = _cols.toFixed(0);
                         var rows = _rows.toFixed(0);
-                        sum += NextGeneration[cols][rows].alive;
+                        sum += CurrentGeneration[cols][rows].alive;
                     }
                 }
             }
