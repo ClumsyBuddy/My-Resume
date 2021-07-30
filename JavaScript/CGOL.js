@@ -1,7 +1,6 @@
 var Offset = 1;
 var CanvasSizeWidth = window.innerWidth * Offset;
 var CanvasSizeHeight = window.innerHeight * Offset;
-var RectAmount = 100;
 var rectSize = 20;
 var RectControl = false;
 var RectWidth = CanvasSizeWidth / rectSize;
@@ -12,26 +11,26 @@ var RectHeight = CanvasSizeHeight / rectSize;
 var EraserControl = document.getElementById("Eraser");
 
 
-var CurrentGeneration = []
+var CurrentGeneration = [];
+var NextGeneration = [];
 
-function CreateBoard(a, b) {
+function CreateBoard() {
     arr = [];
-    for (var i = 0; i < arr.length; i++) {
-        arr[i].push([]);
-        for (var j = 0; j < arr[i].length; j++) {
+    for (var i = 0; i < RectWidth; i++) {
+        arr.push([]);
+        for (var j = 0; j < RectHeight; j++) {
             xPos = rectSize * i;
             yPos = rectSize * j;
-            rectWidth = rectSize;
-            rectHeight = rectSize;
-            arr[i][j].push(new Rect(rectWidth, rectHeight, "blue", xPos, yPos));
+            arr[i].push(new Array());
+            arr[i][j] = new Rect(rectSize, rectSize, "white", i * rectSize, j * rectSize);
         }
 
     }
+    CurrentGeneration = arr;
 }
 
 function Start_Game() {
     CreateBoard(RectWidth, RectHeight);
-    console.log(CurrentGeneration);
     myGameArea.start();
 }
 
@@ -44,9 +43,16 @@ var myGameArea = {
         this.canvas.height = CanvasSizeHeight;
         this.context = this.canvas.getContext("2d");
         this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 10);
         this.LOD = false;
+        this.UpdateGame = false;
+        this.interval = setInterval(updateGameArea, 10);
 
+        window.addEventListener("keyup", function(e) {
+            if (e.key == "o") {
+                console.log("Updategame: ", myGameArea.UpdateGame);
+                myGameArea.UpdateGame = !myGameArea.UpdateGame;
+            }
+        });
         window.addEventListener("mousedown", function(e) {
             myGameArea.MouseClicked = true;
         });
@@ -80,6 +86,7 @@ function Rect(width, height, color, x, y) {
     this.x = x;
     this.y = y;
     this.alive = false
+
     this.update = function() {
         ctx = myGameArea.context;
         ctx.save();
@@ -106,10 +113,8 @@ function Rect(width, height, color, x, y) {
             } else if (this.alive === false && myGameArea.LOD === false) {
                 color = "grey";
             } else if (this.alive === true && myGameArea.LOD === true) {
-                color = "white";
+                color = "grey";
             }
-            //console.log("Mouse X:", mX, "Mouse y:", mY, "Rect x:",
-            //this.x, "Rect y:", this.y, "Rect width:", this.width, "Rect height:", this.height);
         }
     }
 }
@@ -130,22 +135,59 @@ function LifeOrDeath() {
 
 function UpdateRects() {
     for (var i = 0; i < CurrentGeneration.length; i++) {
-        CurrentGeneration[i].update();
-        CurrentGeneration[i].MouseCollision(myGameArea.mousePosx, myGameArea.mousePosy);
-    }
-}
-
-function Handle_Generations() {
-    for (var i = 0; i < CurrentGeneration.length; i++) {
-        for (var j = 0; j < CurrentGeneration.length; j++) {
-
+        for (var j = 0; j < CurrentGeneration[i].length; j++) {
+            if (myGameArea.UpdateGame == false) {
+                CurrentGeneration[i][j].MouseCollision(myGameArea.mousePosx, myGameArea.mousePosy);
+            }
+            CurrentGeneration[i][j].update();
         }
     }
 }
 
 
-function updateGameArea() {
-    myGameArea.clear();
-    UpdateRects();
+function Handle_Generations() {
+    var sum = 0;
+    NextGeneration = CurrentGeneration;
+    for (var i = 0; i < RectWidth; i++) {
+        for (var j = 0; j < RectHeight; j++) {
 
+            for (var x = -1; x < 2; x++) {
+                for (var y = -1; y < 2; y++) {
+
+                    if (x == 0 && y == 0) {
+                        continue;
+                    } else {
+                        var _cols = (i + x + RectWidth) % RectWidth;
+                        var _rows = (j + y + RectHeight) % RectHeight;
+
+                        var cols = _cols.toFixed(0);
+                        var rows = _rows.toFixed(0);
+                        sum += NextGeneration[cols][rows].alive;
+                    }
+                }
+            }
+
+            if ((sum == 2 || sum == 3) && CurrentGeneration[i][j].alive == true) {
+                NextGeneration[i][j].alive = true;
+            } else if ((sum < 2 || sum > 3) && CurrentGeneration[i][j].alive == true) {
+                NextGeneration[i][j].alive = false;
+            } else if (sum == 3 && CurrentGeneration[i][j].alive == false) {
+                NextGeneration[i][j].alive = true;
+            }
+            CurrentGeneration = NextGeneration;
+            sum = 0;
+        }
+    }
+}
+var GenerationCounter = 0;
+var GenerationTimer = 10;
+
+function updateGameArea() {
+    GenerationCounter += 1;
+    myGameArea.clear();
+    if (myGameArea.UpdateGame == true && GenerationCounter >= GenerationTimer) {
+        Handle_Generations();
+        GenerationCounter = 0;
+    }
+    UpdateRects();
 }
