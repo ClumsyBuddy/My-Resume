@@ -14,6 +14,7 @@ var RectHeight = parseInt(_height.toFixed(0));
 console.log(RectWidth, RectHeight);
 
 var EraserControl = document.getElementById("Eraser");
+var Pause_Button = document.getElementById("Pause");
 
 var CurrentGeneration = [];
 
@@ -53,8 +54,7 @@ var myGameArea = {
 
         window.addEventListener("keyup", function(e) {
             if (e.key == "o") {
-                console.log("Updategame: ", myGameArea.UpdateGame);
-                myGameArea.UpdateGame = !myGameArea.UpdateGame;
+                PauseButton();
             } else if (e.key == "p") {
                 myGameArea.debug = !myGameArea.debug;
                 console.log("Debug click");
@@ -146,7 +146,19 @@ function LifeOrDeath() {
 
     }
 }
+function PauseButton() {
+    myGameArea.UpdateGame = !myGameArea.UpdateGame;
+    if (myGameArea.UpdateGame === false) {
+        Pause_Button.style.color = "black";
+        Pause_Button.style.backgroundColor = "white";
+        Pause_Button.textContent = "Paused";
+    } else {
+        Pause_Button.style.color = "white";
+        Pause_Button.style.backgroundColor = "black";
+        Pause_Button.textContent = "Unpaused";
 
+    }
+}
 function UpdateRects() {
     for (var i = 0; i < CurrentGeneration.length; i++) {
         for (var j = 0; j < CurrentGeneration[i].length; j++) {
