@@ -1,15 +1,19 @@
 var Offset = 1;
 var CanvasSizeWidth = window.innerWidth * Offset;
 var CanvasSizeHeight = window.innerHeight * Offset;
-var rectSize = 15;
+var rectSize = 20;
 var RectControl = false;
-var RectWidth = CanvasSizeWidth / rectSize;
-var RectHeight = CanvasSizeHeight / rectSize;
+
+var _width = CanvasSizeWidth / rectSize;
+var _height = CanvasSizeHeight / rectSize;
 
 
+var RectWidth = parseInt(_width.toFixed(0));
+var RectHeight = parseInt(_height.toFixed(0));
+
+console.log(RectWidth, RectHeight);
 
 var EraserControl = document.getElementById("Eraser");
-
 
 var CurrentGeneration = [];
 var NextGeneration = [];
@@ -30,7 +34,7 @@ function CreateBoard() {
 }
 
 function Start_Game() {
-    CreateBoard(RectWidth, RectHeight);
+    CreateBoard();
     myGameArea.start();
 }
 
@@ -157,30 +161,35 @@ function Handle_Generations() {
                     if (x == 0 && y == 0) {
                         continue;
                     } else {
-                        var _cols = (i + x + RectWidth) % RectWidth;
-                        var _rows = (j + y + RectHeight) % RectHeight;
-
-                        var cols = _cols.toFixed(0);
-                        var rows = _rows.toFixed(0);
+                        var cols = (i + x + RectWidth) % RectWidth;
+                        var rows = (j + y + RectHeight) % RectHeight;
                         sum += CurrentGeneration[cols][rows].alive;
                     }
                 }
             }
-
-            if ((sum == 2 || sum == 3) && CurrentGeneration[i][j].alive == true) {
-                NextGeneration[i][j].alive = true;
-            } else if ((sum < 2 || sum > 3) && CurrentGeneration[i][j].alive == true) {
-                NextGeneration[i][j].alive = false;
-            } else if (sum == 3 && CurrentGeneration[i][j].alive == false) {
-                NextGeneration[i][j].alive = true;
+            if (sum > 0) {
+                console.log(sum, CurrentGeneration[i][j]);
             }
-            CurrentGeneration = NextGeneration;
+            if (sum == 2 && NextGeneration[i][j].alive == true) {
+                CurrentGeneration[i][j].alive = true;
+            } else if (sum == 3 && NextGeneration[i][j].alive == true) {
+                CurrentGeneration[i][j].alive = true;
+            } else if (sum < 2 && NextGeneration[i][j].alive == true) {
+                console.log("UnderPop");
+                CurrentGeneration[i][j].alive = false;
+            } else if (sum > 3 && NextGeneration[i][j].alive == true) {
+                console.log("OverPop");
+                CurrentGeneration[i][j].alive = false;
+            } else if (sum == 3 && NextGeneration[i][j].alive == false) {
+                console.log("Birth");
+                CurrentGeneration[i][j].alive = true;
+            }
             sum = 0;
         }
     }
 }
 var GenerationCounter = 0;
-var GenerationTimer = 10;
+var GenerationTimer = 200;
 
 function updateGameArea() {
     GenerationCounter += 1;
