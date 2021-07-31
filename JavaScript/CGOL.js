@@ -1,7 +1,7 @@
 var Offset = 1;
 var CanvasSizeWidth = window.innerWidth * Offset;
 var CanvasSizeHeight = window.innerHeight * Offset;
-var rectSize = 20;
+var rectSize = 15;
 var RectControl = false;
 
 var _width = CanvasSizeWidth / rectSize;
@@ -16,7 +16,6 @@ console.log(RectWidth, RectHeight);
 var EraserControl = document.getElementById("Eraser");
 
 var CurrentGeneration = [];
-var NextGeneration = [];
 
 function CreateBoard() {
     arr = [];
@@ -48,6 +47,7 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         this.frameNo = 0;
         this.LOD = false;
+        this.debug = false;
         this.UpdateGame = false;
         this.interval = setInterval(updateGameArea, 10);
 
@@ -56,7 +56,10 @@ var myGameArea = {
                 console.log("Updategame: ", myGameArea.UpdateGame);
                 myGameArea.UpdateGame = !myGameArea.UpdateGame;
             } else if (e.key == "p") {
-                console.log(CurrentGeneration);
+                myGameArea.debug = !myGameArea.debug;
+                console.log("Debug click");
+            }else if(e.key == "e"){
+                LifeOrDeath();
             }
         });
         window.addEventListener("mousedown", function(e) {
@@ -96,30 +99,35 @@ function Rect(width, height, color, x, y) {
     this.update = function() {
         ctx = myGameArea.context;
         ctx.save();
-        ctx.fillStyle = color;
+        ctx.fillStyle = this.color;
         ctx.lineWidth = 0;
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.restore();
         if (this.alive === false) {
-            color = "white"
+            this.color = "white"
         } else {
-            color = "black"
+            this.color = "black"
         }
     }
 
     this.MouseCollision = function(mX, mY) {
         if (mX > this.x && mX < (this.x + this.width) && mY > this.y && mY < (this.y + this.height)) {
             if (myGameArea.MouseClicked === true) {
-                if (myGameArea.LOD === false) {
+                if (myGameArea.LOD === false && myGameArea.debug === false) {
                     this.alive = true
-                } else {
+                } else if(myGameArea.LOD === true && myGameArea.debug === false) {
                     this.alive = false;
+                }else if (myGameArea.debug === true){
+                    console.log(this.x ,this.y);
+                    console.log(this.alive);
+                    myGameArea.MouseClicked = false;
                 }
-
+                
+                //myGameArea.MouseClicked = false;
             } else if (this.alive === false && myGameArea.LOD === false) {
-                color = "grey";
+                this.color = "grey";
             } else if (this.alive === true && myGameArea.LOD === true) {
-                color = "grey";
+                this.color = "grey";
             }
         }
     }
@@ -150,10 +158,42 @@ function UpdateRects() {
     }
 }
 
+const deepCopy = (arr) => {
+    let copy = [];
+    arr.forEach(elem => {
+      if(Array.isArray(elem)){
+        copy.push(deepCopy(elem))
+      }else{
+        if (typeof elem === 'object') {
+          copy.push(deepCopyObject(elem))
+      } else {
+          copy.push(elem)
+        }
+      }
+    })
+    return copy;
+  }
+  // Helper function to deal with Objects
+  const deepCopyObject = (obj) => {
+    let tempObj = {};
+    for (let [key, value] of Object.entries(obj)) {
+      if (Array.isArray(value)) {
+        tempObj[key] = deepCopy(value);
+      } else {
+        if (typeof value === 'object') {
+          tempObj[key] = deepCopyObject(value);
+        } else {
+          tempObj[key] = value
+        }
+      }
+    }
+    return tempObj;
+  }
 
 function Handle_Generations() {
     var sum = 0;
-    NextGeneration = CurrentGeneration;
+    const NextGeneration = deepCopy(CurrentGeneration);
+
     for (var i = 0; i < RectWidth; i++) {
         for (var j = 0; j < RectHeight; j++) {
             for (var x = -1; x < 2; x++) {
@@ -163,33 +203,29 @@ function Handle_Generations() {
                     } else {
                         var cols = (i + x + RectWidth) % RectWidth;
                         var rows = (j + y + RectHeight) % RectHeight;
-                        sum += CurrentGeneration[cols][rows].alive;
+                        sum += NextGeneration[cols][rows].alive;
                     }
                 }
             }
-            if (sum > 0) {
-                console.log(sum, CurrentGeneration[i][j]);
-            }
-            if (sum == 2 && NextGeneration[i][j].alive == true) {
+            if (sum === 2 && NextGeneration[i][j].alive == true) {
                 CurrentGeneration[i][j].alive = true;
-            } else if (sum == 3 && NextGeneration[i][j].alive == true) {
+            } else if (sum === 3 && NextGeneration[i][j].alive === true) {
                 CurrentGeneration[i][j].alive = true;
-            } else if (sum < 2 && NextGeneration[i][j].alive == true) {
-                console.log("UnderPop");
+            } else if (sum < 2 && NextGeneration[i][j].alive === true) {
                 CurrentGeneration[i][j].alive = false;
-            } else if (sum > 3 && NextGeneration[i][j].alive == true) {
-                console.log("OverPop");
+            } else if (sum > 3 && NextGeneration[i][j].alive === true) {
                 CurrentGeneration[i][j].alive = false;
-            } else if (sum == 3 && NextGeneration[i][j].alive == false) {
-                console.log("Birth");
+            } else if (sum === 3 && NextGeneration[i][j].alive === false) {
                 CurrentGeneration[i][j].alive = true;
             }
             sum = 0;
         }
     }
+    //console.log(CurrentGeneration[1]);
+    //console.log(NextGeneration[1]);
 }
 var GenerationCounter = 0;
-var GenerationTimer = 200;
+var GenerationTimer = 10;
 
 function updateGameArea() {
     GenerationCounter += 1;
