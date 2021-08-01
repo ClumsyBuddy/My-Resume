@@ -1,6 +1,5 @@
 //Function to add scripts dynamically with a class and the source file
 function AddScript(ScriptName) {
-
     try {
         if (ScriptName == "") throw "ScriptName is Empty";
         if (ScriptName == NaN) throw "ScriptName is NaN";

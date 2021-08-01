@@ -7,14 +7,11 @@ var RectControl = false;
 var _width = CanvasSizeWidth / rectSize;
 var _height = CanvasSizeHeight / rectSize;
 
-
 var RectWidth = parseInt(_width.toFixed(0));
 var RectHeight = parseInt(_height.toFixed(0));
 
-console.log(RectWidth, RectHeight);
-
-var EraserControl = document.getElementById("Eraser");
-var Pause_Button = document.getElementById("Pause");
+Eraser_Control = null;
+Pause_Button = null;
 
 var CurrentGeneration = [];
 
@@ -33,7 +30,8 @@ function CreateBoard() {
     CurrentGeneration = arr;
 }
 
-function Start_Game() {
+function Start_CGOL() {
+    LoadUI();
     CreateBoard();
     myGameArea.start();
 }
@@ -136,13 +134,13 @@ function Rect(width, height, color, x, y) {
 function LifeOrDeath() {
     myGameArea.LOD = !myGameArea.LOD;
     if (myGameArea.LOD === true) {
-        EraserControl.style.color = "black";
-        EraserControl.style.backgroundColor = "white";
-        EraserControl.textContent = "Erasing";
+        Eraser_Control.style.color = "black";
+        Eraser_Control.style.backgroundColor = "white";
+        Eraser_Control.textContent = "Erasing";
     } else {
-        EraserControl.style.color = "white";
-        EraserControl.style.backgroundColor = "black";
-        EraserControl.textContent = "Drawing";
+        Eraser_Control.style.color = "white";
+        Eraser_Control.style.backgroundColor = "black";
+        Eraser_Control.textContent = "Drawing";
 
     }
 }
@@ -233,8 +231,6 @@ function Handle_Generations() {
             sum = 0;
         }
     }
-    //console.log(CurrentGeneration[1]);
-    //console.log(NextGeneration[1]);
 }
 var GenerationCounter = 0;
 var GenerationTimer = 10;
@@ -247,4 +243,29 @@ function updateGameArea() {
         GenerationCounter = 0;
     }
     UpdateRects();
+}
+
+
+
+
+
+
+
+function LoadUI(){
+   UI = new UIManager("CanvasDiv");
+   UI.CreateElement(key="Erase", Element = {Ele : "button", id : "Eraser", type : "button", style : "position:absolute; margin-top:5%; left:1%;", textContent : "Drawing"});
+   UI.CreateElement(key="Pause", Element = {Ele : "button", id : "Pause", type : "button", style : "position:absolute; margin-top:5%; left:10%;", textContent : "Paused"});
+
+    var EraserControl = UI.GetSavedElement("Erase");
+    Eraser_Control = EraserControl;
+    var PauseButton =  UI.GetSavedElement("Pause");
+    Pause_Button = PauseButton;
+}
+function UnloadUI(){
+    
+}
+
+function UnloadGame(){
+
+    myGameArea.stop();
 }

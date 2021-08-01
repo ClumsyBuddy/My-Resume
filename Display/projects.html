@@ -12,16 +12,16 @@
     <title>My Projects</title>
 </head>
 
-<body style="background-color: #808080; color: black; text-align: center;" onload="Start_Game()">
+<body style="background-color: #808080; color: black; text-align: center;" onload="Start_CGOL()">
     <nav class="NavFormat">
         <a href="../index.html" class="NavButton NavFormatItem">Home</a>
         <a href="../AboutMe/about.html" class="NavButton NavFormatItem">About Me</a>
         <a href="../Display/projects.html" class="NavButton NavFormatItem">Projects</a>
         <a href="../ContactMe/contact.html" class="NavButton NavFormatItem">Contact</a>
     </nav>
-    <div>
-        <button id="Eraser" type="button" style="position: absolute; margin-top: 3%; left: 1%; background-color: black; color:white">Drawing</button>
-        <button id="Pause" type="button" style="position: absolute; margin-top: 3%; left: 10%; background-color: white; color:black">Paused</button>
+    <div id="CanvasDiv">
+        <!--<button id="Eraser" type="button" style="position: absolute; margin-top: 3%; left: 1%; background-color: black; color:white">Drawing</button>
+        <button id="Pause" type="button" style="position: absolute; margin-top: 3%; left: 10%; background-color: white; color:black">Paused</button>-->
     </div>
     <div class="CanvasContainer">
         <canvas id="Projects" width="100" height="100"></canvas>
@@ -29,5 +29,8 @@
 </body>
 
 <script type="text/javaScript " src="../JavaScript/CGOL.js "></script>
+<script type="text/javaScript " src="../JavaScript/UIManager.js "></script>
+
+
 
 </html>
