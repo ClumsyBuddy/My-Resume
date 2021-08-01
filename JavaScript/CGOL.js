@@ -1,3 +1,5 @@
+var UI = new UIManager("CanvasDiv");
+
 var Offset = 1;
 var CanvasSizeWidth = window.innerWidth * Offset;
 var CanvasSizeHeight = window.innerHeight * Offset;
@@ -12,6 +14,8 @@ var RectHeight = parseInt(_height.toFixed(0));
 
 Eraser_Control = null;
 Pause_Button = null;
+
+
 
 var CurrentGeneration = [];
 
@@ -54,7 +58,7 @@ var myGameArea = {
             if (e.key == "o") {
                 PauseButton();
             } else if (e.key == "p") {
-                myGameArea.debug = !myGameArea.debug;
+                UnloadUI();
                 console.log("Debug click");
             }else if(e.key == "e"){
                 LifeOrDeath();
@@ -252,17 +256,16 @@ function updateGameArea() {
 
 
 function LoadUI(){
-   UI = new UIManager("CanvasDiv");
-   UI.CreateElement(key="Erase", Element = {Ele : "button", id : "Eraser", type : "button", style : "position:absolute; margin-top:5%; left:1%;", textContent : "Drawing"});
-   UI.CreateElement(key="Pause", Element = {Ele : "button", id : "Pause", type : "button", style : "position:absolute; margin-top:5%; left:10%;", textContent : "Paused"});
-
+    UI.CreateElement(key="Erase", Element = {Ele : "button", id : "Eraser", type : "button", style : "position:absolute; margin-top:5%; left:1%;", textContent : "Drawing"});
+    UI.CreateElement(key="Pause", Element = {Ele : "button", id : "Pause", type : "button", style : "position:absolute; margin-top:5%; left:10%;", textContent : "Paused"});
+    
     var EraserControl = UI.GetSavedElement("Erase");
     Eraser_Control = EraserControl;
     var PauseButton =  UI.GetSavedElement("Pause");
     Pause_Button = PauseButton;
 }
 function UnloadUI(){
-    
+    UI.RemoveElement(key="Erase");
 }
 
 function UnloadGame(){

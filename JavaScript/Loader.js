@@ -1,3 +1,7 @@
+//You need a div with the id "LoadScripts" as thats where it will place scripts it setups
+
+
+
 //Function to add scripts dynamically with a class and the source file
 function AddScript(ScriptName) {
     try {
@@ -29,7 +33,9 @@ function AddScript(ScriptName) {
         script_tag[j].setAttribute('class', 'LoadedScripts'); //Add a class for easy removal later
         script_tag[j].setAttribute('type', 'text/javascript'); //Add a type attribute to scripts
         var temp = j;
-        document.getElementById("LoadScripts").appendChild(script_tag[j]);
+        if(document.getElementById("LoadScripts").appendChild(script_tag[j]) == undefined){
+            console.error("Could not AppendChild: ", script_tag[j]);
+        }
         //Apend the child to a element with the loadscripts id where all scripts will be located
 
     }

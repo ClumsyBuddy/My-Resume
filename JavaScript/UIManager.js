@@ -2,8 +2,6 @@
 function UIManager(BaseElement) {
     this.CE = {};
     this.BaseElement = document.getElementById(BaseElement);
-    this.start = function(){
-    }
     //This function takes a key and a object containing all of the things for a element and then
     //it creates the element using the object and puts it into a object with a key for future retrieval
     this.CreateElement = function(Key=null, Element = {Ele, id, type, width, height, style, textContent}){ 
@@ -26,5 +24,8 @@ function UIManager(BaseElement) {
     }
     this.GetSavedElement = function(key){
         return this.CE[key];
+    }
+    this.RemoveElement = function(key){
+        this.CE[key].remove();
     }
 }
